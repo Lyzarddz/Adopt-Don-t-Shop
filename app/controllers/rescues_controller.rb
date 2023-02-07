@@ -1,0 +1,2 @@
+class RescuesController < ApplicationController
+end
