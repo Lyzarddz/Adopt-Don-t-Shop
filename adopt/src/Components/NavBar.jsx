@@ -15,13 +15,14 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
       flexGrow: 1,
-      paddingLeft: 10
+      paddingLeft: 10,
+      fontFamily: 'Unbounded',
     },
     green: {
       backgroundColor: "#316591"
     },
     heights:{
-        height:100
+        height:85
     }
   }));
 
@@ -34,7 +35,8 @@ function NavBar(){
         <AppBar position="static" className={classes.green}>
           <Toolbar className={classes.heights}>
             <Typography variant="h6" className={classes.title}>
-            <GiDogHouse/> Adopt, Don't Shop
+            <GiDogHouse fontSize={45}/> 
+            dopt, Don't Shop
             </Typography>
           </Toolbar>
         </AppBar>

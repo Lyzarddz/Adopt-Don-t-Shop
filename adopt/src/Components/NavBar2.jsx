@@ -14,13 +14,14 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
       flexGrow: 1,
-      paddingLeft: 10
+      paddingLeft: 10,
+  
     },
     green: {
       backgroundColor: "#CECDD2"
     },
     heights:{
-        height:150
+        height:130
     }
   }));
 
