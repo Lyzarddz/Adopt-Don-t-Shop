@@ -1,8 +1,7 @@
 class PetSerializer < ActiveModel::Serializer
   attributes :id
 
-
-  belongs_to :rescues
-  belongs_to :adopters
+  belongs_to :rescue
+  belongs_to :adopter
   has_many :summaries
 end

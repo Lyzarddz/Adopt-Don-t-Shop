@@ -5,7 +5,7 @@ class PetsController < ApplicationController
     end
 
     def show 
-        
+        render json: Pet.all, status: :ok
     end
 
     def create
@@ -22,7 +22,7 @@ class PetsController < ApplicationController
     private
 
     def pet_params
-        params.permit(:name, :gender, :age, :friendly, :house_trained, :health , :description, :adopters_id, :rescues_id)
+        params.permit(:name, :gender, :age, :breed, :friendly, :house_trained, :health , :description, :adopter_id, :rescue_id)
     end
 
 end
