@@ -2,8 +2,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link, useNavigate } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { GiDogHouse } from 'react-icons/gi';
+import React, { useState } from "react";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,6 +32,29 @@ function NavBar(){
 
       const classes = useStyles();
 
+
+      const [currentUser, setCurrentUser] = useState(true);
+
+
+
+  function loggedInLinks(){
+    return (
+      <div>
+            <Button color="inherit" to="/logout" component={ Link }>Logout</Button> 
+      </div>
+    )
+  }
+
+  function loggedOutLinks(){
+    return(
+      <div >
+          <Button color="inherit" to="/login" component={ Link }>Login</Button> 
+          <Button color="inherit" to="/signup" component={ Link } >Sign Up</Button> 
+      </div>
+    )
+  }
+
+
     return (
         <div className={classes.root}>
         <AppBar position="static" className={classes.green}>
@@ -38,6 +63,7 @@ function NavBar(){
             <GiDogHouse fontSize={45}/> 
             dopt, Don't Shop
             </Typography>
+            { currentUser ? loggedInLinks() : loggedOutLinks()}
           </Toolbar>
         </AppBar>
       </div>

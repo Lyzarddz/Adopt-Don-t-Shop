@@ -34,7 +34,7 @@ function NavBar2(){
         <AppBar position="static" className={classes.green}>
           <Toolbar className={classes.heights}>
             <Typography variant="h6" className={classes.title}>
-                Adopt, Don't Shop
+        
             </Typography>
           </Toolbar>
         </AppBar>
