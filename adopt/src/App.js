@@ -7,6 +7,7 @@ import StyleSheet from './Components/StyleSheet';
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PetList from './Components/PetList';
+import RescueList from './Components/RescueList';
 
 
 
@@ -14,6 +15,7 @@ function App() {
 
   const [petData, setPetData] = useState([]);
   const [errors, setErrors] = useState([]);
+  const [rescueData, setRescueData] = useState([]);
 
   function loadPets() {
  
@@ -36,6 +38,8 @@ function App() {
     })
     }
 
+    console.log(petData)
+
     
     
 
@@ -47,6 +51,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/pets"  element= {<PetList  petData={petData} loadPets={loadPets}/>} />   
+        <Route path='/rescues'  element= {<RescueList />} />
       </Routes>
     </Router>
   );
