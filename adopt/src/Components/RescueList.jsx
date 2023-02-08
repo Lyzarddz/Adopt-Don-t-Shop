@@ -1,12 +1,37 @@
+import { useEffect } from 'react';
+import { Card } from "semantic-ui-react";
+import RescueCard from './RescueCard';
+
+
+const RescueList = ({ loadRescues, rescueData }) => {
+
+    useEffect(()=>{
+        loadRescues()
+      },[])
 
 
 
-const RescueList = () => {
+      const cards= rescueData.map((r, idx)=> {
+        return(
+          <div key={idx}>
+            <RescueCard
+            key={idx}
+            rescue={r}
+          />
+          </div>
+        )
+    })  
+
 
 return (
-    <div>
-        <h1 className="primary">Meet our Rescues</h1>
-    </div>
+    <Card>
+    <h1 className='primary'>Meet our Rescues</h1>
+  <br></br>
+  <br></br>
+      {cards}
+<br/>
+<br/>
+  </Card>
 )
 
 }

@@ -19,7 +19,7 @@ function App() {
 
   function loadPets() {
  
-    fetch(`http://localhost:3000/api/pets`, {
+    fetch(`http://localhost:3000/api/pets/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +38,29 @@ function App() {
     })
     }
 
-    console.log(petData)
+
+
+    function loadRescues() {
+
+      fetch(`http://localhost:3000/api/rescues/`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json", 
+        },
+      })
+      .then(res => {
+        if(res.ok){
+            res.json().then(rescues => {
+              console.log(rescues)
+                setRescueData(rescues)
+            })
+        }else {
+          console.log(res)
+          res.json().then(json => setErrors(json.errors))
+        }
+      })
+      }
 
     
     
@@ -51,7 +73,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/pets"  element= {<PetList  petData={petData} loadPets={loadPets}/>} />   
-        <Route path='/rescues'  element= {<RescueList />} />
+        <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
       </Routes>
     </Router>
   );

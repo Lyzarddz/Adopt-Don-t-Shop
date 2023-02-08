@@ -53,7 +53,6 @@ const HomePage = () => {
             <h1 style={style3}><GiSittingDog/> <FaHome/> </h1>
             <h2 style={style2}>Find adoptable dogs here: </h2>
             <Button color="inherit" to="/pets" component={ Link }><FaDog style={style4} /></Button> 
-
        </div>
     )
 }
