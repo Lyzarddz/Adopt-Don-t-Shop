@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     menuButton: {
-        paddingRight: 25,
+        paddingRight: 20,
         minWidth: 150,
         minHeight: 60
     },
@@ -48,6 +48,9 @@ function NavBar2(){
               <Button color="inherit"  variant="outlined" to="/pets" className={classes.menuButton}  component={ Link }>Adoptable Pets</Button> 
               &nbsp; 
               &nbsp;
+              <Button color="inherit"  variant="outlined" to="/rescues" className={classes.menuButton}  component={ Link }>Rescues</Button> 
+              &nbsp; 
+              &nbsp;
               <Button color="inherit"  variant="outlined" to="/profile" className={classes.menuButton}  component={ Link }>My Profile</Button> 
               &nbsp;
               &nbsp;
@@ -59,7 +62,14 @@ function NavBar2(){
     return(
       <div >
           <Button color="inherit" to="/" component={ Link }>Home</Button> 
+          &nbsp; 
+          &nbsp;
           <Button color="inherit" to="/pets" component={ Link }>Adoptable Pets</Button> 
+          &nbsp; 
+          &nbsp;
+              <Button color="inherit"  variant="outlined" to="/rescues" className={classes.menuButton}  component={ Link }>Rescues</Button> 
+              &nbsp; 
+              &nbsp;
       </div>
     )
   }
