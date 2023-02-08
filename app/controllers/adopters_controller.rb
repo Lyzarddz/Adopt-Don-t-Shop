@@ -12,7 +12,6 @@ class AdoptersController < ApplicationController
         render json: Adopter.all, status: :ok
     end
 
-
     def show 
         render json: @current_adopter, status: :ok
     end
