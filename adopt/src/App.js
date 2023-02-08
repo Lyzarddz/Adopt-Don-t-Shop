@@ -37,6 +37,8 @@ function App() {
     })
     }
 
+    
+    
 
 
   return (
@@ -45,7 +47,7 @@ function App() {
       <NavBar2/>
       <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/pets"  element= {<PetList  loadPets={loadPets} />} />   
+        <Route path="/pets"  element= {<PetList  petData={petData} loadPets={loadPets}/>} />   
       </Routes>
     </Router>
   );

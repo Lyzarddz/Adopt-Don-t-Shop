@@ -2,7 +2,7 @@ import Card from '@mui/material/Card';
 import Button from '@material-ui/core/Button';
 
 
-const PetCard = (  ) => {
+const PetCard = ( {pet} ) => {
 
 
 
@@ -14,7 +14,7 @@ const PetCard = (  ) => {
             <h3>
             <div className="extra content" >
                 <ul>
-                Name:
+                Name: {pet.name}
                   <br/>
                 Breed: 
                 <br></br>
@@ -34,7 +34,7 @@ const PetCard = (  ) => {
                 Rescue:
                 </ul>
                 <Button variant="outlined" color="inherit" disableElevation > View Assesments</Button> 
-                <Button variant="outlined" color="inherit" disableElevation > Adopt</Button> 
+                <Button variant="outlined" color="inherit" disableElevation > Adopt </Button> 
             </div>
             </h3>
         </Card>
