@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
   end  
   
   def current_rescues
-    @current_rescues ||= Rescue.find_by(id: session[:rescues_id])
+    @current_rescues ||= Rescue.find_by(id: session[:rescue_id])
   end
   
   

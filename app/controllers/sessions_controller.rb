@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session.delete :owner_id
+        session.delete :adopter_id
         render json: @current_adopter
     end
-    
+
 end
