@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   scope :api do
   resources :summaries
-  resources :adopters
-  resources :rescues
+  resources :adopters, only: [:show, :create, :index]
+  resources :rescues, only: [:show, :create, :index]
   resources :pets
 
   end

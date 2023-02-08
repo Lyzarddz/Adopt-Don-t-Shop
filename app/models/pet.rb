@@ -1,6 +1,6 @@
 class Pet < ApplicationRecord
   belongs_to :rescue
-  belongs_to :adopters
+  belongs_to :adopter
 
   has_many :summaries
 

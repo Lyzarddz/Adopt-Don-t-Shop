@@ -1,6 +1,6 @@
-class Api::SummariesController < ApplicationController
+class SummariesController < ApplicationController
 
-    skip_before_action :authorize, only: [:create]
+    # skip_before_action :authorize, only: [:create]
     
     def index 
         render json: Summary.all, status: :ok
@@ -29,5 +29,5 @@ class Api::SummariesController < ApplicationController
         summary.destroy
         head :no_content
     end
-    
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_07_232200) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_08_013512) do
   create_table "adopters", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -29,10 +29,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_232200) do
     t.string "description"
     t.string "health"
     t.integer "rescue_id", null: false
-    t.integer "adopters_id", null: false
+    t.integer "adopter_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["adopters_id"], name: "index_pets_on_adopters_id"
+    t.index ["adopter_id"], name: "index_pets_on_adopter_id"
     t.index ["rescue_id"], name: "index_pets_on_rescue_id"
   end
 
@@ -48,11 +48,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_232200) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "pets_id"
-    t.index ["pets_id"], name: "index_summaries_on_pets_id"
+    t.integer "pet_id"
+    t.index ["pet_id"], name: "index_summaries_on_pet_id"
   end
 
-  add_foreign_key "pets", "adopters", column: "adopters_id"
+  add_foreign_key "pets", "adopters"
   add_foreign_key "pets", "rescues"
-  add_foreign_key "summaries", "pets", column: "pets_id"
+  add_foreign_key "summaries", "pets"
 end

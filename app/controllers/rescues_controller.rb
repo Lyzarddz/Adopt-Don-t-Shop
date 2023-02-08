@@ -1,11 +1,15 @@
-class Api::RescuesController < ApplicationController
+class RescuesController < ApplicationController
 
-    skip_before_action :authorize, only: :create
+    # skip_before_action :authorize, only: :create
 
     def create 
        rescues = Rescue.create!(rescues_params),
        session[:rescues_id] = rescues.id
        render json: rescues, status: :created
+    end
+
+    def index 
+        render json: Rescue.all, status: :ok
     end
     
     def show 
@@ -17,5 +21,5 @@ class Api::RescuesController < ApplicationController
     def rescues_params
         params.require(:rescue).permit( :name, :password, :email)
     end
-    
+
 end

@@ -1,6 +1,6 @@
-class Api::AdoptersController < ApplicationController
+class AdoptersController < ApplicationController
 
-    skip_before_action :authorize, only: :create
+    # skip_before_action :authorize, only: :create
 
     def create 
     adopter = Adopter.create!(adopter_params),
@@ -8,9 +8,15 @@ class Api::AdoptersController < ApplicationController
     render json: adopter, status: :created
     end
 
-    def show 
+    def index 
         render json: Adopter.all, status: :ok
     end
+
+
+    def show 
+        render json: @current_adopter, status: :ok
+    end
+
 
     private_methods
 

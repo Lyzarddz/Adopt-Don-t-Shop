@@ -1,16 +1,15 @@
-class Api::PetsController < ApplicationController
+class PetsController < ApplicationController
 
     def index 
-        render json: current_adopter.pets, status: :ok
+        render json: Pet.all, status: :ok
     end
 
     def show 
-        pet = current_adopter.pets.find(params[:id])
-        render json: pet
+        
     end
 
     def create
-        pet = current_adopter.pets.create!(pet_params)
+        pet = Pet.create!(pet_params)
         render json: pet, status: :created
     end
 
