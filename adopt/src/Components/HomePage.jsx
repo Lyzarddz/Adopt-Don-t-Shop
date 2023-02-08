@@ -1,9 +1,8 @@
 
 import { GiDogHouse, GiSittingDog } from 'react-icons/gi';
 import { FaDog, FaHome } from 'react-icons/fa';
-
-
-
+import { Link, useNavigate } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 
 const HomePage = () => {
@@ -41,6 +40,7 @@ const HomePage = () => {
         fontSize: "65px"
     }
 
+
     return (
       <div style={myStyles}>
         <br/>
@@ -52,8 +52,7 @@ const HomePage = () => {
             <br/>
             <h1 style={style3}><GiSittingDog/> <FaHome/> </h1>
             <h2 style={style2}>Find adoptable dogs here: </h2>
-            <FaDog style={style4}/> 
-            
+            <Button color="inherit" to="/pets" component={ Link }><FaDog style={style4} /></Button> 
 
        </div>
     )

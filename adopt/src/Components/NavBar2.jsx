@@ -14,7 +14,9 @@ const useStyles = makeStyles((theme) => ({
     menuButton: {
         paddingRight: 20,
         minWidth: 150,
-        minHeight: 60
+        minHeight: 60,
+        color: "#32373b",
+        fontWeight: "bold",
     },
     title: {
       flexGrow: 1,
