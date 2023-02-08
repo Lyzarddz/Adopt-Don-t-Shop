@@ -28,7 +28,6 @@ function App() {
       if(res.ok){
           res.json().then(pets => {
               setPetData(pets)
-              console.log(petData)
           })
       } else {
         res.json().then(json => setErrors(json.errors))

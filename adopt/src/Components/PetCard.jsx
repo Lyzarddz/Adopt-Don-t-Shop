@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 
 const PetCard = ( {pet} ) => {
 
-
+console.log(pet)
 
 
     return (
@@ -12,9 +12,9 @@ const PetCard = ( {pet} ) => {
             <div className="content" >
             </div>
             <h3>
-            <div className="extra content" >
+            <div className="primary">
                 <ul>
-                Name: {pet.name}
+                Name: {}
                   <br/>
                 Breed: 
                 <br></br>
@@ -33,7 +33,10 @@ const PetCard = ( {pet} ) => {
                 <br/>
                 Rescue:
                 </ul>
-                <Button variant="outlined" color="inherit" disableElevation > View Assesments</Button> 
+                <Button variant="outlined" color="inherit"  fontFamily={'Unbounded'} > View Assesments</Button> 
+                <br/>
+                <br/>
+                <br/>
                 <Button variant="outlined" color="inherit" disableElevation > Adopt </Button> 
             </div>
             </h3>
