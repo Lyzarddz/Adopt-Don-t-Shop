@@ -17,10 +17,10 @@ console.log(rescue)
                 Rescue: {rescue.name}
                 <br/>
                 <br/>
-                Location:
+                Location: {rescue.location}
                 <br/>
                 <br/>
-                Phone Number:
+                Phone Number: {rescue.phone}
                 <br/>
                 <br/>
                 Email: {rescue.email}

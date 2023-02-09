@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PetList from './Components/PetList';
 import RescueList from './Components/RescueList';
+import Profile from './Components/Profile';
 
 
 
@@ -72,6 +73,7 @@ function App() {
       <NavBar2/>
       <Routes>
         <Route path="/" element={<HomePage/>} />
+        <Route path="/profile" element={<Profile/>} />
         <Route path="/pets"  element= {<PetList  petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
       </Routes>
