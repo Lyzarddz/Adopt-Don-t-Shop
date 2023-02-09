@@ -85,8 +85,8 @@ function App() {
 
   return (
     <Router>
-      <NavBar/>
-      <NavBar2/>
+      <NavBar currentUser={currentUser}  setCurrentUser={setCurrentUser}/>
+      <NavBar2 currentUser={currentUser}  setCurrentUser={setCurrentUser}/>
       <Routes>
        <Route path="/login" element={<Login loginUser={loginUser} loadPets={loadPets}/>} />
        <Route path="/signup" element={<Signup/>} />

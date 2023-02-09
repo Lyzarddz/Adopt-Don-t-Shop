@@ -9,8 +9,6 @@ const RescueList = ({ loadRescues, rescueData }) => {
         loadRescues()
       },[])
 
-
-
       const cards= rescueData.map((r, idx)=> {
         return(
           <div key={idx}>

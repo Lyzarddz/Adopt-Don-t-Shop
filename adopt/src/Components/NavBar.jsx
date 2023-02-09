@@ -28,12 +28,10 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-function NavBar(){
+function NavBar({ currentUser, setCurrentUser }){
 
       const classes = useStyles();
 
-
-      const [currentUser, setCurrentUser] = useState(false);
 
 
 

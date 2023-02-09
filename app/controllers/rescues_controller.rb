@@ -1,5 +1,7 @@
 class RescuesController < ApplicationController
 
+    skip_before_action :authorize
+
     def create 
        rescues = Rescue.create!(rescues_params),
        session[:rescues_id] = rescues.id
