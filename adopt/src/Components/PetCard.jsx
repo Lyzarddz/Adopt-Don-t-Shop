@@ -14,24 +14,24 @@ console.log(pet)
             <h3>
             <div className="primary">
                 <ul>
-                Name: {}
+                Name: {pet.name}
                   <br/>
-                Breed: 
+                Breed: {pet.breed}
                 <br></br>
-                Gender:   
+                Gender:   {pet.gender}
                <br></br>
-                Age: 
+                Age: {pet.age}
                 <br/>
-                Friendly?:
+                Friendly?: {pet.friendly}
                 <br/>
-                House Trained?
+                House Trained? {pet.house_trained}
                 <br/>
-                Health Status:
+                Health Status:{pet.health}
                 <br/>
-                Description:
+                Description: {pet.description}
                 <br/>
                 <br/>
-                Rescue:
+                Rescue: {pet.rescue.name}
                 </ul>
                 <Button variant="outlined" color="inherit"  fontFamily={'Unbounded'} > View Assesments</Button> 
                 <br/>

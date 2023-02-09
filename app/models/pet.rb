@@ -3,6 +3,7 @@ class Pet < ApplicationRecord
   belongs_to :adopter
 
   has_many :summaries, dependent: :destroy 
+  has_one_attached :image
 
   validates :name, presence: true
   validates :gender, presence: true

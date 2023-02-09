@@ -89,7 +89,7 @@ function App() {
       <NavBar2 currentUser={currentUser}  setCurrentUser={setCurrentUser}/>
       <Routes>
        <Route path="/login" element={<Login loginUser={loginUser} loadPets={loadPets}/>} />
-       <Route path="/signup" element={<Signup/>} />
+       <Route path="/signup" element={<Signup loginUser={loginUser}/>} />
         <Route path="/" element={<HomePage/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/pets"  element= {<PetList  petData={petData} loadPets={loadPets}/>} />   
