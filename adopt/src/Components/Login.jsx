@@ -36,7 +36,6 @@ const Login = ({ loginUser, loadPets }) => {
                   loginUser(user)
                   loadPets()
                   navigate((`/pets/`))
-                 console.log("sucess")
               })
           } else {
             res.json().then(json => setErrors(json.errors))
@@ -51,7 +50,7 @@ const Login = ({ loginUser, loadPets }) => {
     
 return(
           <div className='primary'>
-      <h1>{errors}</h1>
+      <h1 style={{color: "red"}}>{errors}</h1>
       <h1> Log In </h1> 
         <form onSubmit={ handleSubmit }>
           <div>

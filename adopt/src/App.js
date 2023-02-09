@@ -68,7 +68,6 @@ function App() {
       .then(res => {
         if(res.ok){
             res.json().then(rescues => {
-              console.log(rescues)
                 setRescueData(rescues)
             })
         }else {
@@ -89,6 +88,8 @@ function App() {
        })
      })
    }
+
+   const deleteProfile = (id) => {setCurrentUser(current => current.filter(p => p.id !== id))}
     
 
 
@@ -100,7 +101,7 @@ function App() {
        <Route path="/login" element={<Login loginUser={loginUser} loadPets={loadPets}/>} />
        <Route path="/signup" element={<Signup loginUser={loginUser}/>} />
         <Route path="/" element={<HomePage/>} />
-        <Route path="/profile" element={<Profile currentUser={currentUser} updateProfile={updateProfile}/>} />
+        <Route path="/profile" element={<Profile deleteProfile={deleteProfile} currentUser={currentUser} updateProfile={updateProfile}/>} />
         <Route path="/pets"  element= {<PetList  petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
       </Routes>

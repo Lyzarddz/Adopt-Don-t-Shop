@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 
 const RescueCard = ({rescue}) => {
 
-console.log(rescue)
+
 
 
     return(

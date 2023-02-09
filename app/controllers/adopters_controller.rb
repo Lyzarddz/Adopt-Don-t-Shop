@@ -22,6 +22,12 @@ class AdoptersController < ApplicationController
         render json: adopter, status: :created
     end
 
+    def destroy
+        adopter = Adopter.find(params[:id])
+        adopter.destroy
+        head :no_content
+    end
+
 
     private_methods
 

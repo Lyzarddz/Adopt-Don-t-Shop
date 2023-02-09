@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   scope :api do
   resources :summaries
-  resources :adopters, only: [:show, :create, :index, :update]
+  resources :adopters
   resources :rescues, only: [:show, :create, :index]
   resources :pets
 

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Card from '@mui/material/Card';
 import { useNavigate } from "react-router-dom";
 
-const Profile = ({ currentUser, updateProfile }) => {
+const Profile = ({ currentUser, updateProfile, deleteProfile }) => {
 
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
@@ -46,6 +46,16 @@ const Profile = ({ currentUser, updateProfile }) => {
             res.json().then(json => setErrors(json.errors))
           }
         })
+      }
+
+      function handleDeleteProfileClick(e){
+        e.preventDefault();
+      
+        fetch(`http://localhost:3000/api/adopters/${id}`, { 
+          method: 'DELETE',
+        })
+        deleteProfile(id);
+        navigate((`/`))
       }
 
 
@@ -95,7 +105,7 @@ const Profile = ({ currentUser, updateProfile }) => {
                   <br/>
                   <br/>
                 <br/>
-                  <Button variant="outlined" color="inherit"  disableElevation > 
+                  <Button onClick={handleDeleteProfileClick} variant="outlined" color="inherit"  disableElevation > 
                     Delete Account</Button> 
                 </ul>
             </div>
