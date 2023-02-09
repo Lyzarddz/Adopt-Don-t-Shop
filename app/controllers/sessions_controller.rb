@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-    skip_before_action :authorize, only: :create
+    skip_before_action :authorize
 
     def create 
         adopter = Adopter.find_by(name: params[:name])

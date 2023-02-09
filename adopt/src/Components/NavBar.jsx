@@ -31,14 +31,21 @@ const useStyles = makeStyles((theme) => ({
 function NavBar({ currentUser, setCurrentUser }){
 
       const classes = useStyles();
+      const navigate = useNavigate();
 
 
-
+      function logout() {
+        fetch('http://localhost:3000/api/logout', {
+          method: 'DELETE',
+        })
+            setCurrentUser(false);
+            navigate("/");
+        }
 
   function loggedInLinks(){
     return (
       <div>
-            <Button color="inherit" to="/logout" component={ Link }>Logout</Button> 
+            <Button color="inherit" onClick={logout} >Logout</Button> 
       </div>
     )
   }
