@@ -16,6 +16,12 @@ class AdoptersController < ApplicationController
         render json: @current_adopter, status: :ok
     end
 
+    def update
+        adopter = Adopter.find(params[:id])
+        adopter.update!(adopter_params)
+        render json: adopter, status: :created
+    end
+
 
     private_methods
 

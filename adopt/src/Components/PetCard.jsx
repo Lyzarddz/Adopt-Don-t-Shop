@@ -4,8 +4,6 @@ import Button from '@material-ui/core/Button';
 
 const PetCard = ( {pet} ) => {
 
-console.log(pet)
-
 
     return (
         <Card variant="outlined">

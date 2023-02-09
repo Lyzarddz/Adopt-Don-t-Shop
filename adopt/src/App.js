@@ -56,7 +56,6 @@ function App() {
     }
 
 
-
     function loadRescues() {
 
       fetch(`http://localhost:3000/api/rescues/`, {
@@ -79,7 +78,17 @@ function App() {
       })
       }
 
-    
+      function updateProfile(updatedProfile){
+        setCurrentUser(current => {
+         return current.map(profile => {
+           if (profile.id === updatedProfile.id) {
+             return updatedProfile
+           } else {
+               return profile
+             }
+       })
+     })
+   }
     
 
 
@@ -91,7 +100,7 @@ function App() {
        <Route path="/login" element={<Login loginUser={loginUser} loadPets={loadPets}/>} />
        <Route path="/signup" element={<Signup loginUser={loginUser}/>} />
         <Route path="/" element={<HomePage/>} />
-        <Route path="/profile" element={<Profile/>} />
+        <Route path="/profile" element={<Profile currentUser={currentUser} updateProfile={updateProfile}/>} />
         <Route path="/pets"  element= {<PetList  petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
       </Routes>
