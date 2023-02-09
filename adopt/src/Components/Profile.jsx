@@ -15,24 +15,20 @@ const Profile = () => {
         phone: "",
       });
 
+      const myStyles = {
+
+      }
+
 
     return (
-        <div>
+        <div className='primary' >
         <Card variant="outlined">  
        <p style={{color: "red"}}>  {errors} </p>
             <div className="content" >
             </div>
             <h1>Name:</h1>
-            <h3>
-            <Form.Input
-                label="Name:"
-                // placeholder={name}
-                name="name"
-                value={formData.name}
-              />
             <div className="extra content" >
               <ul>
-             <br/>
              <Form.Input
                 label="Email:"
                 // placeholder={email}
@@ -61,7 +57,7 @@ const Profile = () => {
                   <br></br>
                 </ul>
             </div>
-            </h3>
+          
         </Card>
         </div>
     )
