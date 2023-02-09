@@ -18,7 +18,21 @@ function App() {
 
   const [petData, setPetData] = useState([]);
   const [errors, setErrors] = useState([]);
+  const [currentUser, setCurrentUser] = useState('');
   const [rescueData, setRescueData] = useState([]);
+
+  useEffect(() => {
+    // auto-login
+    fetch('http://localhost:3000/api/me').then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setCurrentUser(user));
+      }
+    });
+  }, []);
+
+  function loginUser (user) {
+    setCurrentUser(user); 
+  }
 
   function loadPets() {
  
@@ -74,7 +88,7 @@ function App() {
       <NavBar/>
       <NavBar2/>
       <Routes>
-       <Route path="/login" element={<Login/>} />
+       <Route path="/login" element={<Login loginUser={loginUser} onLogin={setCurrentUser} />} />
        <Route path="/signup" element={<Signup/>} />
         <Route path="/" element={<HomePage/>} />
         <Route path="/profile" element={<Profile/>} />

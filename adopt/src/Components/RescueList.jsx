@@ -25,7 +25,7 @@ const RescueList = ({ loadRescues, rescueData }) => {
 
 return (
     <Card>
-    <h1 className='primary'>Meet our Rescues</h1>
+    <h1 className='primary'>Meet our Rescue Organizations</h1>
   <br></br>
   <br></br>
       {cards}
