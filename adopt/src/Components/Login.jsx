@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 
 
-const Login = ({ loginUser }) => {
+const Login = ({ loginUser, loadPets }) => {
 
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
@@ -34,6 +34,8 @@ const Login = ({ loginUser }) => {
           if(res.ok){
               res.json().then(user => {
                   loginUser(user)
+                  loadPets()
+                  navigate((`/pets/`))
                  console.log("sucess")
               })
           } else {

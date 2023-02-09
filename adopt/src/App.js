@@ -88,7 +88,7 @@ function App() {
       <NavBar/>
       <NavBar2/>
       <Routes>
-       <Route path="/login" element={<Login loginUser={loginUser} onLogin={setCurrentUser} />} />
+       <Route path="/login" element={<Login loginUser={loginUser} loadPets={loadPets}/>} />
        <Route path="/signup" element={<Signup/>} />
         <Route path="/" element={<HomePage/>} />
         <Route path="/profile" element={<Profile/>} />
