@@ -22,6 +22,7 @@ const Profile = () => {
 
     return (
         <div className='primary' >
+            <h1>My Profile</h1>
         <Card variant="outlined">  
        <p style={{color: "red"}}>  {errors} </p>
             <div className="content" >

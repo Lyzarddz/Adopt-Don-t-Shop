@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 function NavBar2(){
 
       const classes = useStyles();
-      const [currentUser, setCurrentUser] = useState(true);
+      const [currentUser, setCurrentUser] = useState(false);
 
 
   function loggedInLinks(){
@@ -63,10 +63,10 @@ function NavBar2(){
   function loggedOutLinks(){
     return(
       <div >
-          <Button color="inherit" to="/" component={ Link }>Home</Button> 
+          <Button color="inherit" to="/" variant="outlined" className={classes.menuButton} component={ Link }>Home</Button> 
           &nbsp; 
           &nbsp;
-          <Button color="inherit" to="/pets" component={ Link }>Adoptable Pets</Button> 
+          <Button color="inherit" to="/pets" variant="outlined" className={classes.menuButton} component={ Link }>Adoptable Pets</Button> 
           &nbsp; 
           &nbsp;
               <Button color="inherit"  variant="outlined" to="/rescues" className={classes.menuButton}  component={ Link }>Rescues</Button> 
