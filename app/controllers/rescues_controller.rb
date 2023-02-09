@@ -14,6 +14,8 @@ class RescuesController < ApplicationController
         render json: @current_rescues, status: :ok
     end
     
+
+
     private_methods
     
     def rescues_params

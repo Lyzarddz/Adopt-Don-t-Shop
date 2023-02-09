@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::API
 
-      
   include ActionController::Cookies
 
   rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_resp
   rescue_from ActiveRecord::RecordNotFound, with: :not_found_resp
-  
+
+  before_action :authorize
   
   def current_adopter
     @current_adopter ||= Adopter.find_by(id: session[:adopter_id])    #memoization 

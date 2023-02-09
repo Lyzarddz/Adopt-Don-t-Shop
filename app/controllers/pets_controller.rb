@@ -4,9 +4,9 @@ class PetsController < ApplicationController
         render json: Pet.all, status: :ok
     end
 
-    # def show 
-    #     render json: Pet.all, status: :ok
-    # end
+    def show 
+        render json: Pet.all, status: :ok
+    end
 
     def create
         pet = Pet.create!(pet_params)
