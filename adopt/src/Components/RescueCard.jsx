@@ -14,13 +14,16 @@ console.log(rescue)
             <h3>
             <div className="primary">
                 <ul>
-                Rescue:
+                Rescue: {rescue.name}
                 <br/>
                 <br/>
                 Location:
                 <br/>
                 <br/>
                 Phone Number:
+                <br/>
+                <br/>
+                Email: {rescue.email}
                 <br/>
                 <br/>
                 </ul>
