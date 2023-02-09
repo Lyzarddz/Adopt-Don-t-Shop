@@ -2,7 +2,7 @@ import Card from '@mui/material/Card';
 import Button from '@material-ui/core/Button';
 
 
-const PetCard = ( {pet} ) => {
+const PetCard = ( {pet, currentUser} ) => {
 
 
     return (
@@ -35,7 +35,11 @@ const PetCard = ( {pet} ) => {
                 <br/>
                 <br/>
                 <br/>
-                <Button variant="outlined" color="inherit" disableElevation > Adopt </Button> 
+
+                { currentUser ? 
+                 <Button variant="outlined" color="inherit" disableElevation > Adopt </Button> : ""
+                }
+               
             </div>
             </h3>
         </Card>

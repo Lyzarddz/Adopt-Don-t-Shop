@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
 
-const PetList = ( {petData, loadPets}) => {
+const PetList = ( {petData, loadPets, currentUser}) => {
 
         useEffect(()=>{
         loadPets()
@@ -19,6 +19,7 @@ const PetList = ( {petData, loadPets}) => {
             <PetCard
             key={idx}
             pet={p}
+            currentUser={currentUser}
           />
           </div>
         )
