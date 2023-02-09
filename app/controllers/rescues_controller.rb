@@ -17,7 +17,7 @@ class RescuesController < ApplicationController
     private_methods
     
     def rescues_params
-        params.require(:rescue).permit( :name, :password, :email)
+        params.require(:rescue).permit( :name, :password, :email, :phone, :location)
     end
 
 end

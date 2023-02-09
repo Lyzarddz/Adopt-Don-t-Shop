@@ -20,7 +20,7 @@ class AdoptersController < ApplicationController
     private_methods
 
     def adopter_params
-        params.require(:adopter).permit( :name, :password, :email)
+        params.require(:adopter).permit( :name, :password, :email, :phone)
     end
 
 end

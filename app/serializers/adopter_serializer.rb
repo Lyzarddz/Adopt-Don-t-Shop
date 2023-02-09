@@ -1,5 +1,5 @@
 class AdopterSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :password_digest
+  attributes :id, :name, :email, :password_digest, :phone
 
   has_many :pets
   has_many :rescues, through: :pets
