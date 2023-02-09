@@ -33,7 +33,7 @@ function NavBar(){
       const classes = useStyles();
 
 
-      const [currentUser, setCurrentUser] = useState(true);
+      const [currentUser, setCurrentUser] = useState(false);
 
 
 

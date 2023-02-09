@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PetList from './Components/PetList';
 import RescueList from './Components/RescueList';
 import Profile from './Components/Profile';
+import Login from './Components/Login';
 
 
 
@@ -72,6 +73,7 @@ function App() {
       <NavBar/>
       <NavBar2/>
       <Routes>
+       <Route path="/login" element={<Login/>} />
         <Route path="/" element={<HomePage/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/pets"  element= {<PetList  petData={petData} loadPets={loadPets}/>} />   
