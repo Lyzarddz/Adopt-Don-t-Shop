@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PetList from './Components/PetList';
 import RescueList from './Components/RescueList';
+import SummaryList from './Components/SummaryList';
 import Profile from './Components/Profile';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
@@ -33,6 +34,7 @@ function App() {
   function loginUser (user) {
     setCurrentUser(user); 
   }
+
 
   function loadPets() {
  
@@ -104,6 +106,7 @@ function App() {
         <Route path="/profile" element={<Profile deleteProfile={deleteProfile} currentUser={currentUser} updateProfile={updateProfile}/>} />
         <Route path="/pets"  element= {<PetList  currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
+        <Route path='/summaries'  element= {<SummaryList petData={petData} />} />
       </Routes>
     </Router>
   );

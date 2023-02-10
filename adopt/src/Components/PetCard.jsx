@@ -1,5 +1,6 @@
 import Card from '@mui/material/Card';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 
 const PetCard = ( {pet, currentUser} ) => {
@@ -31,7 +32,7 @@ const PetCard = ( {pet, currentUser} ) => {
                 <br/>
                 Rescue: {pet.rescue.name}
                 </ul>
-                <Button variant="outlined" color="inherit"  fontFamily={'Unbounded'} > View Assesments</Button> 
+                <Button variant="outlined" color="inherit"  to="/summaries" component={ Link } fontFamily={'Unbounded'} > View Summaries</Button> 
                 <br/>
                 <br/>
                 <br/>

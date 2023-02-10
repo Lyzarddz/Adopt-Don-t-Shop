@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import React, { useState } from "react";
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
       flexGrow: 1,
     },
