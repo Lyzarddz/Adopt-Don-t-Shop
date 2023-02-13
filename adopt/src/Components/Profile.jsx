@@ -48,7 +48,9 @@ const Profile = ({ currentUser, updateProfile, deleteProfile }) => {
           }
         })
       }
-      console.log(errors[0])
+
+
+      
       function handleDeleteProfileClick(e){
         e.preventDefault();
       

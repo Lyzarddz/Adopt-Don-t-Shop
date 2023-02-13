@@ -42,7 +42,7 @@ const handleChange = (e) => {
       if(res.ok){
           res.json().then(user => {
             loginUser(user)
-            navigate((`/pets`))
+            navigate((`/`))
           })
       } else {
         res.json().then(json => setErrors(json.errors))
@@ -73,7 +73,7 @@ return (
         </div> 
         <div>
         <label htmlFor="password">Password: </label>
-        <input type="text" name="password" id="password" value={password} onChange={handleChange} />
+        <input type="password" name="password" id="password" value={password} onChange={handleChange} />
         </div> 
         <br></br>
         <input type="submit" value="Create Account" onClick={handleSubmit} className='btn'/>
