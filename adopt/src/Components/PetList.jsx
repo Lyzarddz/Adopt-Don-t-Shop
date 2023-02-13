@@ -27,7 +27,7 @@ const PetList = ( {petData, loadPets, currentUser}) => {
 
     return (
         <Card>
-          <h1 className='primary'>Adoptable Pets</h1>
+          <h1 className='primary'>Adoptable Dogs</h1>
         <br></br>
         <br></br>
             {cards}

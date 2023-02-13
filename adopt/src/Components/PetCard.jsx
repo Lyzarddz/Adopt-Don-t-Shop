@@ -19,6 +19,8 @@ const myStyles = {
             <div className="primary">
 
               <img src={pet.image} style={myStyles} />
+              <br/>
+              <br/>
                 <ul>
                 Name: {pet.name}
                   <br/>
@@ -39,7 +41,8 @@ const myStyles = {
                 <br/>
                 Rescue: {pet.rescue.name}
                 </ul>
-                <Button variant="outlined" color="inherit"  to={`/summaries/${id}`} component={ Link } fontFamily={'Unbounded'} > View Summaries</Button> 
+                <br/>
+                <Button variant="outlined" color="inherit"  to={`/summaries/${id}`} component={ Link } fontFamily={'Unbounded'} > View Summaries for {pet.name}</Button> 
                 <br/>
                 <br/>
                 <br/>
