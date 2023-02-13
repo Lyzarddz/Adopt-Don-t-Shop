@@ -19,6 +19,12 @@
     text-align: center;
 }
 
+.btn {
+    background-color: "#e0e5e9";
+    color: gray;
+    font-family: 'Unbounded';
+    text-align: center;
+}
 
 .smallText {
     color: gray;

@@ -62,7 +62,7 @@ return(
         <input type="text" name="password" id="password" value={password} onChange={ handleChange }/>
         </div> 
           <br></br>
-          <input type="submit" value="Login" />
+          <input type="submit" value="Login" className='btn'/>
         </form>
       </div>
     )

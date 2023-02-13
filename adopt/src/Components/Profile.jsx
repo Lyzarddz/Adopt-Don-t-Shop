@@ -40,31 +40,38 @@ const Profile = ({ currentUser, updateProfile, deleteProfile }) => {
         .then(res => {
           if(res.ok){
             res.json().then(updateProfile(id))
-            alert("Record updated successfully");
+            alert("Profile updated successfully");
             navigate((`/profile`))
           } else {
             res.json().then(json => setErrors(json.errors))
+           
           }
         })
       }
-
+      console.log(errors[0])
       function handleDeleteProfileClick(e){
         e.preventDefault();
       
-        fetch(`http://localhost:3000/api/adopters/${id}`, { 
-          method: 'DELETE',
-        })
-        deleteProfile(id);
-        navigate((`/`))
+        if (window.confirm('Are you sure you want to delete your profile?')) {
+            fetch(`http://localhost:3000/api/adopters/${id}`, { 
+                method: 'DELETE',
+              })
+            deleteProfile(id);
+            alert("Profile deleted successfully");
+            navigate((`/`))
+          } else {
+            console.log('Thing was not saved to the database.');
+          }
       }
+
+   
 
 
     return (
         <div className='primary'>
             <h1>My Profile</h1>
         <Card variant="outlined" >  
-       <p style={{color: "red"}}>  {errors}  </p>
-       
+       <p style={{color: "red"}}>  <br/> {errors[0]} <br/> <br/> {errors[1]} <br/>  <br/> {errors[2]}  </p>
             <div className="content"  >
             </div>
             <br/>

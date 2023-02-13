@@ -1,5 +1,4 @@
 import './App.css';
-import axios from "axios";
 import HomePage from "./Components/HomePage"
 import NavBar from './Components/NavBar';
 import NavBar2 from './Components/NavBar2';
@@ -21,6 +20,7 @@ function App() {
   const [errors, setErrors] = useState([]);
   const [currentUser, setCurrentUser] = useState('');
   const [rescueData, setRescueData] = useState([]);
+  const [summaryData, setSummaryData] = useState([]);
 
   useEffect(() => {
     // auto-login
@@ -31,11 +31,12 @@ function App() {
     });
   }, []);
 
+
   function loginUser (user) {
     setCurrentUser(user); 
   }
 
-
+const {id} = summaryData
   function loadPets() {
  
     fetch(`http://localhost:3000/api/pets/`, {
@@ -52,7 +53,28 @@ function App() {
           })
       } else {
         res.json().then(json => setErrors(json.errors))
-        console.log(errors)
+      }
+    })
+    }
+
+
+  function loadSummaries() {
+ 
+    fetch(`http://localhost:3000/api/pet/summaries/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    })
+    .then(res => {
+      if(res.ok){
+          res.json().then(pets => {
+              setSummaryData(pets)
+              console.log(pets)
+          })
+      } else {
+        res.json().then(json => setErrors(json.errors))
       }
     })
     }
@@ -79,9 +101,13 @@ function App() {
       })
       }
 
+
       function updateProfile(updatedProfile){
         setCurrentUser(current => {
-         return current.map(profile => {
+         
+          console.log(current)
+          console.log(current.typeOf)
+         return  Object.keys(current).map(profile => {
            if (profile.id === updatedProfile.id) {
              return updatedProfile
            } else {
@@ -91,7 +117,7 @@ function App() {
      })
    }
 
-   const deleteProfile = (id) => {setCurrentUser(current => current.filter(p => p.id !== id))}
+   const deleteProfile = (id) => {setCurrentUser(current => Object.keys(current).filter(p => p.id !== id))}
     
 
 
@@ -106,7 +132,7 @@ function App() {
         <Route path="/profile" element={<Profile deleteProfile={deleteProfile} currentUser={currentUser} updateProfile={updateProfile}/>} />
         <Route path="/pets"  element= {<PetList  currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
-        <Route path='/summaries'  element= {<SummaryList petData={petData} />} />
+        <Route path={'/summaries/:id'}  element= {<SummaryList petData={petData} loadSummaries={loadSummaries} summaryData={summaryData}/>} />
       </Routes>
     </Router>
   );

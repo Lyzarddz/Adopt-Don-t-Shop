@@ -5,6 +5,4 @@ class AdopterSerializer < ActiveModel::Serializer
   has_many :rescues, through: :pets
   has_many :summaries, through: :pets
 
-
-
 end

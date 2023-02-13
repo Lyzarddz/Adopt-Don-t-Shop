@@ -1,9 +1,9 @@
 class AdoptersController < ApplicationController
 
-    skip_before_action :authorize
+    skip_before_action :authorize, only: :create
 
     def create 
-    adopter = Adopter.create!(adopter_params),
+    adopter = Adopter.create!(adopter_params)
     session[:adopter_id] = adopter.id
     render json: adopter, status: :created
     end
@@ -29,10 +29,10 @@ class AdoptersController < ApplicationController
     end
 
 
-    private_methods
+    private
 
     def adopter_params
-        params.require(:adopter).permit( :name, :password, :email, :phone)
+        params.permit( :name, :password, :email, :phone)
     end
 
 end

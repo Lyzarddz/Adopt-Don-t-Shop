@@ -1,9 +1,8 @@
 import Card from '@mui/material/Card';
-import Button from '@material-ui/core/Button';
 
 
-const SummaryCard = () => {
 
+const SummaryCard = ({pet}) => {
 
 
 
@@ -14,7 +13,7 @@ const SummaryCard = () => {
             <h3>
             <div className="primary">
                 <ul>
-                Pet: 
+                Pet: {pet.name}
                 <br/>
                 <br/>
                 Date:

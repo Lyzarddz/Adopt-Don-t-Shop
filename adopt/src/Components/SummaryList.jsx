@@ -5,21 +5,20 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
 
-const SummaryList = ({ petData }) => {
+const SummaryList = ({ petData, summaryData , loadSummaries}) => {
+
+  // useEffect(()=>{
+  //   loadSummaries()
+  // },[])
+
+
+
 
   const styles = {
     fontFamily: 'Unbounded',
     textAlign: 'center',
     color: "#32373b",
 }
-
-
-
-
-
-    // useEffect(()=>{
-    //     loadRescues()
-    //   },[])
 
       const cards= petData.map((p, idx)=> {
         return(

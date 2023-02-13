@@ -1,9 +1,8 @@
 class Pet < ApplicationRecord
-  belongs_to :rescue, dependent: :destroy 
+  belongs_to :rescue
   belongs_to :adopter
 
-  has_many :summaries, dependent: :destroy 
-  has_one_attached :image
+  has_many :summaries
 
   validates :name, presence: true
   validates :gender, presence: true

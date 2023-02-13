@@ -46,7 +46,6 @@ const handleChange = (e) => {
           })
       } else {
         res.json().then(json => setErrors(json.errors))
-        console.log(errors)
       }
   })
 }
@@ -56,7 +55,8 @@ const handleChange = (e) => {
 
 return ( 
     <div className='primary'>
-      <h1>{errors}</h1>
+      <h1 style={{color: "red"}}> <br/>  <br/> { errors[0]} <br/> <br/> {errors[1]} <br/>  <br/> {errors[2]}   <br/>  <br/> {errors[3]}</h1>
+      <br/>
     <h1> Create Account </h1> 
     <form >
       <div>
@@ -76,7 +76,7 @@ return (
         <input type="text" name="password" id="password" value={password} onChange={handleChange} />
         </div> 
         <br></br>
-        <input type="submit" value="Create Account"/>
+        <input type="submit" value="Create Account" onClick={handleSubmit} className='btn'/>
     </form>
     </div>
   )

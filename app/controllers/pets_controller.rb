@@ -11,6 +11,11 @@ class PetsController < ApplicationController
         render json: Pet.all, status: :ok
     end
 
+    def summaries 
+        summary= Pet.where(:id => params[:id]).first
+        render json: summary, status: :ok
+    end
+
     def create
         pet = Pet.create!(pet_params)
         render json: pet, status: :created
@@ -25,7 +30,7 @@ class PetsController < ApplicationController
     private
 
     def pet_params
-        params.permit(:name, :gender, :age, :breed, :friendly, :house_trained, :health , :description, :rescue_id, :image)
+        params.permit(:name, :gender, :age, :breed, :friendly, :house_trained, :health , :description, :rescue_id, :adopter_id, :image)
     end
 
 end
