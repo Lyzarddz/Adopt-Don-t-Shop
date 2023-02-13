@@ -4,8 +4,9 @@ import Button from '@material-ui/core/Button';
 
 const RescueCard = ({rescue}) => {
 
-
-
+    const myStyles = {
+        height:'20vh',
+    }
 
     return(
     <Card variant="outlined">
@@ -14,7 +15,10 @@ const RescueCard = ({rescue}) => {
             <h3>
             <div className="primary">
                 <ul>
-                Rescue: {rescue.name}
+                <br/>
+                <img src={rescue.image} style={myStyles} />
+                <br/>
+                 {rescue.name}
                 <br/>
                 <br/>
                 Location: {rescue.location}

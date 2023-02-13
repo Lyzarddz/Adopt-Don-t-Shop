@@ -7,7 +7,9 @@ const PetCard = ( {pet, currentUser} ) => {
 
 const {id} = pet
 
-console.log(pet.image)
+const myStyles = {
+  height:'50vh',
+}
 
     return (
         <Card variant="outlined">
@@ -16,7 +18,7 @@ console.log(pet.image)
             <h3>
             <div className="primary">
 
-              <img src={pet.image}  />
+              <img src={pet.image} style={myStyles} />
                 <ul>
                 Name: {pet.name}
                   <br/>
