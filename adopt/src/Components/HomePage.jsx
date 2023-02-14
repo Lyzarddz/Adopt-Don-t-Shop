@@ -1,7 +1,7 @@
 
 import { GiDogHouse, GiSittingDog } from 'react-icons/gi';
 import { FaDog, FaHome } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
 
@@ -49,9 +49,14 @@ const HomePage = () => {
         <h2  style={style2}>
             <GiDogHouse fontSize={45}/> 
             dopt, Don't Shop has been helping mans best friend find their furever homes since 2023</h2>
+            <h3 style={style2}>All of our available dogs have been fully vetted, vaccinated, microchipped and altered</h3>
+            <br/>
+            <br/>
             <br/>
             <h1 style={style3}><GiSittingDog/> <FaHome/> </h1>
+            <br/>
             <h2 style={style2}>Find adoptable dogs here: </h2>
+            <br/>
             <Button color="inherit" to="/pets" component={ Link }><FaDog style={style4} /></Button> 
        </div>
     )

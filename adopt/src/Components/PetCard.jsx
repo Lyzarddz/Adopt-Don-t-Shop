@@ -40,13 +40,16 @@ const myStyles = {
                 <br/>
                 <br/>
                 Rescue: {pet.rescue.name}
+                <br/>
+                Rescue number: {pet.rescue.phone}
+                <br/>
+                Rescue Phone: {pet.rescue.email}
                 </ul>
                 <br/>
                 <Button variant="outlined" color="inherit"  to={`/summaries/${id}`} component={ Link } fontFamily={'Unbounded'} > View Summaries for {pet.name}</Button> 
                 <br/>
                 <br/>
                 <br/>
-
                 { currentUser ? 
                  <Button variant="outlined" color="inherit" disableElevation > Adopt </Button> : ""
                 }

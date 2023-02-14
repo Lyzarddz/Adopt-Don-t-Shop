@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAlert } from 'react-alert'
 
 const Signup = ({loginUser}) => {
 
@@ -41,12 +42,15 @@ const handleChange = (e) => {
     .then(res => {
       if(res.ok){
           res.json().then(user => {
+            alert("Perfoming background check ....")
             loginUser(user)
+            setErrors('')
             navigate((`/`))
           })
       } else {
         res.json().then(json => setErrors(json.errors))
       }
+   
   })
 }
 
@@ -55,7 +59,7 @@ const handleChange = (e) => {
 
 return ( 
     <div className='primary'>
-      <h1 style={{color: "red"}}> <br/>  <br/> { errors[0]} <br/> <br/> {errors[1]} <br/>  <br/> {errors[2]}   <br/>  <br/> {errors[3]}</h1>
+      <h1 style={{color: "red"}}> <br/>  { errors[0]} <br/> {errors[1]} <br/>  {errors[2]}   <br/>  {errors[3]}</h1>
       <br/>
     <h1> Create Account </h1> 
     <form >

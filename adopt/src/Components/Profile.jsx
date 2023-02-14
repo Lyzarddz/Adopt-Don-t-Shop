@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Card from '@mui/material/Card';
 import { useNavigate } from "react-router-dom";
 
-const Profile = ({ currentUser, updateProfile, deleteProfile }) => {
+const Profile = ({ currentUser, updateProfile, deleteProfile , setCurrentUser}) => {
 
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
@@ -41,6 +41,7 @@ const Profile = ({ currentUser, updateProfile, deleteProfile }) => {
           if(res.ok){
             res.json().then(updateProfile(id))
             alert("Profile updated successfully");
+            setErrors("")
             navigate((`/profile`))
           } else {
             res.json().then(json => setErrors(json.errors))
@@ -50,7 +51,7 @@ const Profile = ({ currentUser, updateProfile, deleteProfile }) => {
       }
 
 
-      
+
       function handleDeleteProfileClick(e){
         e.preventDefault();
       
@@ -60,6 +61,7 @@ const Profile = ({ currentUser, updateProfile, deleteProfile }) => {
               })
             deleteProfile(id);
             alert("Profile deleted successfully");
+            setCurrentUser(false);
             navigate((`/`))
           } else {
             console.log('Thing was not saved to the database.');
@@ -73,7 +75,7 @@ const Profile = ({ currentUser, updateProfile, deleteProfile }) => {
         <div className='primary'>
             <h1>My Profile</h1>
         <Card variant="outlined" >  
-       <p style={{color: "red"}}>  <br/> {errors[0]} <br/> <br/> {errors[1]} <br/>  <br/> {errors[2]}  </p>
+        <h1 style={{color: "red"}}> <br/>  { errors[0]} <br/> {errors[1]} <br/>  {errors[2]}   <br/> </h1>
             <div className="content"  >
             </div>
             <br/>

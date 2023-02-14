@@ -135,11 +135,11 @@ function App() {
        <Route path="/login" element={<Login loginUser={loginUser} loadPets={loadPets}/>} />
        <Route path="/signup" element={<Signup loginUser={loginUser}/>} />
         <Route path="/" element={<HomePage/>} />
-        <Route path="/profile" element={<Profile deleteProfile={deleteProfile} currentUser={currentUser} updateProfile={updateProfile}/>} />
+        <Route path="/profile" element={<Profile setCurrentUser={setCurrentUser} deleteProfile={deleteProfile} currentUser={currentUser} updateProfile={updateProfile}/>} />
         <Route path="/pets"  element= {<PetList  currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
         <Route path='/rescues/:id/pets'  element= {<RescuePets  currentUser={currentUser}  petData={petData} loadPets={loadPets}/>} />
-        <Route path='/summaries/:id'  element= {<SummaryList petData={petData} loadSummaries={loadSummaries} summaryData={summaryData} loadPets={loadPets}/>} />
+        <Route path='/summaries/:id'  element= {<SummaryList petData={petData} currentUser={currentUser} loadSummaries={loadSummaries} summaryData={summaryData} loadPets={loadPets}/>} />
       </Routes>
     </Router>
   );

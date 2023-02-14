@@ -1,9 +1,10 @@
 import Card from '@mui/material/Card';
 import React from 'react';
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 
-
-const SummaryCard = ({pet}) => {
+const SummaryCard = ({pet, currentUser}) => {
 
 
     return(
@@ -14,10 +15,11 @@ const SummaryCard = ({pet}) => {
             <div className="primary">
                 Pet: {pet.name}
                 <br/>
-                <br/>
                 { pet.summaries.map((s) =>{
                     return(
                         <React.Fragment>
+                            <br/>
+                            <br/>
                             Date: {s.date}
                             <br/>
                             <br/>
@@ -28,6 +30,11 @@ const SummaryCard = ({pet}) => {
                          )
                   })
                 }
+                <br/>
+                  { currentUser ? 
+                      <Button variant="outlined" color="inherit" disableElevation > Adopt </Button> : ""
+                  }
+                <br/>
                 <br/>
             </div>
             </h3>
