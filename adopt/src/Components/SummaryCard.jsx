@@ -1,9 +1,9 @@
 import Card from '@mui/material/Card';
+import React from 'react';
 
 
 
 const SummaryCard = ({pet}) => {
-
 
 
     return(
@@ -12,17 +12,22 @@ const SummaryCard = ({pet}) => {
             </div>
             <h3>
             <div className="primary">
-                <ul>
                 Pet: {pet.name}
                 <br/>
                 <br/>
-                Date:
-                <br/>
-                <br/>
-                Notes:
-                <br/>
-                <br/>
-                </ul>
+                { pet.summaries.map((s) =>{
+                    return(
+                        <React.Fragment>
+                            Date: {s.date}
+                            <br/>
+                            <br/>
+                            Notes: {s.notes}
+                            <br/>
+                            <br/>
+                        </React.Fragment>
+                         )
+                  })
+                }
                 <br/>
             </div>
             </h3>

@@ -3,15 +3,17 @@ import { Card } from "semantic-ui-react";
 import SummaryCard from './SummaryCard';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import { useParams } from 'react-router-dom';
 
 
-const SummaryList = ({ petData, summaryData , loadSummaries}) => {
+const SummaryList = ({ petData, loadPets}) => {
 
-  // useEffect(()=>{
-  //   loadSummaries()
-  // },[])
+  useEffect(()=>{
+    loadPets()
+  },[])
 
 
+const params = useParams();
 
 
   const styles = {
@@ -21,14 +23,15 @@ const SummaryList = ({ petData, summaryData , loadSummaries}) => {
 }
 
       const cards= petData.map((p, idx)=> {
-        return(
-          <div key={idx}>
-            <SummaryCard
-            key={idx}
-            pet={p}
-          />
-          </div>
-        )
+        if (params.id == p.id)
+          return(
+            <div key={idx}>
+              <SummaryCard
+              key={idx}
+              pet={p}
+            />
+            </div>
+          )
     })  
 
 

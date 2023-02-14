@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post "/login", to:"sessions#create"
   delete "/logout", to:"sessions#destroy"
   get "/pet/summaries/:id", to: "pets#summaries"
+
+  get "/rescues/pets/:id", to: "rescues#pets"
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

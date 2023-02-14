@@ -17,7 +17,6 @@ class RescuesController < ApplicationController
     end
     
 
-
     private_methods
     
     def rescues_params

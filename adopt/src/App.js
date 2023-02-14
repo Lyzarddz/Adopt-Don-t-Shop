@@ -11,6 +11,8 @@ import SummaryList from './Components/SummaryList';
 import Profile from './Components/Profile';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
+import { useParams } from 'react-router-dom';
+import RescuePets from './Components/RescuePets';
 
 
 
@@ -21,6 +23,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState('');
   const [rescueData, setRescueData] = useState([]);
   const [summaryData, setSummaryData] = useState([]);
+  const {id}= useParams();
 
   useEffect(() => {
     // auto-login
@@ -36,7 +39,8 @@ function App() {
     setCurrentUser(user); 
   }
 
-const {id} = summaryData
+
+
   function loadPets() {
  
     fetch(`http://localhost:3000/api/pets/`, {
@@ -71,13 +75,15 @@ const {id} = summaryData
       if(res.ok){
           res.json().then(pets => {
               setSummaryData(pets)
-              console.log(pets)
           })
       } else {
         res.json().then(json => setErrors(json.errors))
       }
     })
     }
+
+    console.log(summaryData)
+    console.log(petData)
 
 
     function loadRescues() {
@@ -132,7 +138,8 @@ const {id} = summaryData
         <Route path="/profile" element={<Profile deleteProfile={deleteProfile} currentUser={currentUser} updateProfile={updateProfile}/>} />
         <Route path="/pets"  element= {<PetList  currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
-        <Route path={'/summaries/:id'}  element= {<SummaryList petData={petData} loadSummaries={loadSummaries} summaryData={summaryData}/>} />
+        <Route path='/rescues/:id/pets'  element= {<RescuePets  currentUser={currentUser}  petData={petData} loadPets={loadPets}/>} />
+        <Route path='/summaries/:id'  element= {<SummaryList petData={petData} loadSummaries={loadSummaries} summaryData={summaryData} loadPets={loadPets}/>} />
       </Routes>
     </Router>
   );

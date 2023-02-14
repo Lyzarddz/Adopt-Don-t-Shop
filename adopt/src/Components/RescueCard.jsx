@@ -1,12 +1,14 @@
 import Card from '@mui/material/Card';
 import Button from '@material-ui/core/Button';
-
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const RescueCard = ({rescue}) => {
 
     const myStyles = {
         height:'20vh',
     }
+
 
     return(
     <Card variant="outlined">
@@ -31,7 +33,7 @@ const RescueCard = ({rescue}) => {
                 <br/>
                 <br/>
                 </ul>
-                <Button variant="outlined" color="inherit"  fontFamily={'Unbounded'} > View Adoptable Pets</Button> 
+                <Button variant="outlined" color="inherit" to={`/rescues/${rescue.id}/pets`} component={ Link } fontFamily={'Unbounded'}> View Adoptable Pets</Button> 
                 <br/>
             </div>
             </h3>
