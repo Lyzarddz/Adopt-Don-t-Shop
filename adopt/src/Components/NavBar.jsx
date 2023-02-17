@@ -5,7 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { GiDogHouse } from 'react-icons/gi';
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { LoginContext } from '../Helper/Context';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,10 +29,11 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-function NavBar({ currentUser, setCurrentUser }){
+function NavBar() {
 
       const classes = useStyles();
       const navigate = useNavigate();
+      const {currentUser, setCurrentUser} = useContext(LoginContext)
 
 
       function logout() {

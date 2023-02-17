@@ -11,8 +11,9 @@ import SummaryList from './Components/SummaryList';
 import Profile from './Components/Profile';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
-import { useParams } from 'react-router-dom';
 import RescuePets from './Components/RescuePets';
+import MyPets from './Components/MyPets';
+import { LoginContext } from './Helper/Context';
 
 
 
@@ -22,8 +23,7 @@ function App() {
   const [errors, setErrors] = useState([]);
   const [currentUser, setCurrentUser] = useState('');
   const [rescueData, setRescueData] = useState([]);
-  const [summaryData, setSummaryData] = useState([]);
-  const {id}= useParams();
+  const [isAdopted, setIsAdopted] = useState(false);
 
   useEffect(() => {
     // auto-login
@@ -39,6 +39,35 @@ function App() {
     setCurrentUser(user); 
   }
 
+  function petAdopted (id) {
+    petData.filter(p => p.id !== id)
+  }
+
+ 
+  const {id} = petData;
+
+
+  function adoptPet(e){
+    e.preventDefault();
+      
+       fetch(`http://localhost:3000/api/pets/${id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(id)
+        })
+        .then(res => {
+          if(res.ok){
+            res.json().then(petAdopted(id))
+            alert("Congratulations! You just adopted a Dog");
+          } else {
+            res.json().then(json => setErrors(json.errors))
+           
+          }
+        })
+  }
 
 
   function loadPets() {
@@ -60,31 +89,6 @@ function App() {
       }
     })
     }
-
-
-  function loadSummaries() {
- 
-    fetch(`http://localhost:3000/api/pet/summaries/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      }
-    })
-    .then(res => {
-      if(res.ok){
-          res.json().then(pets => {
-              setSummaryData(pets)
-          })
-      } else {
-        res.json().then(json => setErrors(json.errors))
-      }
-    })
-    }
-
-    console.log(summaryData)
-    console.log(petData)
-
 
     function loadRescues() {
 
@@ -110,9 +114,6 @@ function App() {
 
       function updateProfile(updatedProfile){
         setCurrentUser(current => {
-         
-          console.log(current)
-          console.log(current.typeOf)
          return  Object.keys(current).map(profile => {
            if (profile.id === updatedProfile.id) {
              return updatedProfile
@@ -128,9 +129,10 @@ function App() {
 
 
   return (
+    <LoginContext.Provider value={{currentUser, setCurrentUser}}>
     <Router>
-      <NavBar currentUser={currentUser}  setCurrentUser={setCurrentUser}/>
-      <NavBar2 currentUser={currentUser}  setCurrentUser={setCurrentUser}/>
+      <NavBar />
+      <NavBar2 />
       <Routes>
        <Route path="/login" element={<Login loginUser={loginUser} loadPets={loadPets}/>} />
        <Route path="/signup" element={<Signup loginUser={loginUser}/>} />
@@ -139,9 +141,11 @@ function App() {
         <Route path="/pets"  element= {<PetList  currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
         <Route path='/rescues/:id/pets'  element= {<RescuePets  currentUser={currentUser}  petData={petData} loadPets={loadPets}/>} />
-        <Route path='/summaries/:id'  element= {<SummaryList petData={petData} currentUser={currentUser} loadSummaries={loadSummaries} summaryData={summaryData} loadPets={loadPets}/>} />
+        <Route path='/summaries/:id'  element= {<SummaryList petData={petData} currentUser={currentUser} loadPets={loadPets}/>} />
+        <Route path='/mypets'  element= {<MyPets currentUser={currentUser} loadPets={loadPets} petData={petData} />} />
       </Routes>
     </Router>
+    </LoginContext.Provider>
   );
 }
 

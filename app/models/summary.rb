@@ -1,5 +1,5 @@
 class Summary < ApplicationRecord
-    belongs_to :pet
+  belongs_to :pet
 
 
   validates :date, presence: true

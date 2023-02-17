@@ -7,7 +7,6 @@ const RescuePets = ({ petData, currentUser, loadPets}) => {
     const  rescuePets = petData.filter(p => p.rescue.id == params.id)
 
     return (
-
      <PetList petData={rescuePets} currentUser={currentUser} loadPets= {loadPets}/>
     )
 }

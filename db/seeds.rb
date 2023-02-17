@@ -32,4 +32,16 @@
 
 # jack = Pet.create!(name:"Jack", age: 1, gender: "Male", breed: "Lab Mix", friendly:"Yes", house_trained:"No", health:"Good", description: "Fun loving and obedient", rescue_id: 4,  image:"/images/328350756_3255829908000680_5246061057846847_n.jpg", adopter_id:21)
 
-jack = Pet.create!(name:"Jack", age: 1, gender: "Male", breed: "Lab Mix", friendly:"Yes", house_trained:"No", health:"Good", description: "Fun loving and obedient", rescue_id: 4,  image:"/images/328931221_737371347777913_3949598533835669212_n.jpg", adopter_id:21)
+# sweetie = Pet.create!(name:"Sweetie", age: 5, gender: "Male", breed: "Pit Mix", friendly:"Yes", house_trained:"No", health:"Good", description: "Sweet and affectionate", rescue_id: 5,  image:"/images/328931221_737371347777913_3949598533835669212_n.jpg", adopter_id:21)
+
+# champ = Pet.create!(name:"Champ", age: 4, gender: "Male", breed: "Bulldog", friendly:"Yes", house_trained:"No", health:"Has UTI that is being treated", description: "Quiet and Relazed", rescue_id: 2,  image:"/images/329031247_942942233811858_102107441093901977_n.jpg", adopter_id:21)
+
+# tulip = Pet.create!(name:"Tulip", age: 6, gender: "Female", breed: "Terrier Mix", friendly:"Not good with cats", house_trained:"Yes", health:"Has ear infection that is being treated", description: "Shy at first but very affectionate", rescue_id: 3,  image:"/images/329117760_590806895771292_5420640884066776464_n.jpg", adopter_id:21)
+
+# sally = Pet.create!(name:"Sally", age: 1, gender: "Female", breed: "Terrier Mix", friendly:"Yes", house_trained:"Yes", health:"Good", description: "Energetic. Loves all people and animals", rescue_id: 3,  image:"/images/329139436_583285169994800_7065196831885804010_n.jpg", adopter_id:21)
+
+# scoot = Pet.create!(name:"Scoot", age: 1, gender: "Male", breed: "Terrier Mix", friendly:"Not good with kids", house_trained:"Yes", health:"Good", description: "Energetic. Can be nippy with children", rescue_id: 6,  image:"/images/329156256_515360287407459_6278726399290282729_n.jpg", adopter_id:21)
+
+# scoot = Pet.create!(name:"Scoot", age: 1, gender: "Male", breed: "Terrier Mix", friendly:"Not good with kids", house_trained:"Yes", health:"Good", description: "Energetic. Can be nippy with children", rescue_id: 6,  image:"/images/329156256_515360287407459_6278726399290282729_n.jpg", adopter_id:21)
+
+# luna = Pet.create!(name:"Luna", age: 4, gender: "Female", breed: "Great Pyranese", friendly:"Good with other dogs and kids, unsure about cats", house_trained:"Yes", health:"Good", description: "Calm and great with other dogs and children", rescue_id: 2,  image:"/images/331160946_700157921838227_8038469595296485335_n.jpg", adopter_id:25)

@@ -44,7 +44,6 @@ const handleChange = (e) => {
           res.json().then(user => {
             alert("Perfoming background check ....")
             loginUser(user)
-            setErrors('')
             navigate((`/`))
           })
       } else {

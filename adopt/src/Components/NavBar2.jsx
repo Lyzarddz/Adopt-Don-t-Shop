@@ -4,7 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { LoginContext } from '../Helper/Context';
 
 
 const useStyles = makeStyles(() => ({
@@ -35,11 +36,11 @@ const useStyles = makeStyles(() => ({
     }
   }));
 
-function NavBar2({ currentUser, setCurrentUser }){
+function NavBar2(){
 
       const classes = useStyles();
      
-
+      const {currentUser, setCurrentUser} = useContext(LoginContext)
 
   function loggedInLinks(){
     return (
@@ -52,6 +53,9 @@ function NavBar2({ currentUser, setCurrentUser }){
               &nbsp;
               <Button color="inherit"  variant="outlined" to="/rescues" className={classes.menuButton}  component={ Link }>Rescues</Button> 
               &nbsp; 
+              &nbsp;
+              <Button color="inherit"  variant="outlined" to="/mypets" className={classes.menuButton}  component={ Link }>My Pets</Button> 
+              &nbsp;
               &nbsp;
               <Button color="inherit"  variant="outlined" to="/profile" className={classes.menuButton}  component={ Link }>My Profile</Button> 
               &nbsp;
