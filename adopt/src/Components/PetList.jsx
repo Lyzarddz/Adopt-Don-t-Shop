@@ -1,10 +1,13 @@
 import React from 'react'
 import { Card } from "semantic-ui-react";
 import PetCard from './PetCard';
-import {  useEffect, useState } from 'react';
+import {  useEffect } from 'react';
 
 
-const PetList = ( {petData, loadPets, currentUser}) => {
+const PetList = ( {petData, loadPets, currentUser, adoptPet}) => {
+
+  const [isAdopted, setIsAdopted] = useState(false);
+
 
         useEffect(()=>{
         loadPets()
@@ -15,9 +18,13 @@ const PetList = ( {petData, loadPets, currentUser}) => {
         return(
           <div key={idx}>
             <PetCard
+            petData={petData}
             key={idx}
             pet={p}
             currentUser={currentUser}
+            adoptPet={adoptPet}
+            isAdopted={isAdopted}
+            setIsAdopted= {setIsAdopted}
           />
           </div>
         )

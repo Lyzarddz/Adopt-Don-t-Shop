@@ -1,54 +1,13 @@
 import Card from '@mui/material/Card';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import { useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 
-
-const PetCard = ( {pet, currentUser, adoptPet, petData, isAdopted, setIsAdopted} ) => {
-
-const [errors, setErrors] = useState([]);
-const navigate = useNavigate()
-const [isAdopted, setIsAdopted] = useState(false);
+const MyPetCard = ( {pet, currentUser} ) => {
 
 const {id} = pet
 
-
-console.log(currentUser.id)
-
-function petAdopted (id) {
-  petData.filter(p => p.id !== id)
-}
-
-function adoptPet(e){
-  e.preventDefault();
- 
-  var userId = currentUser.id
-    
-     fetch(`http://localhost:3000/api/pets/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-	       "adopter_id": userId
-       })
-      })
-      .then(res => {
-        if(res.ok){
-          res.json().then(petAdopted(id))
-          alert("Congratulations! You just adopted a Dog");
-          navigate("/mypets")
-          setIsAdopted(true);
-        } else {
-          res.json().then(json => setErrors(json.errors))
-        }
-      })
-}
-
-
-
+// console.log(pet)
 
 const myStyles = {
   height:'50vh',
@@ -60,12 +19,29 @@ const myStyles = {
             </div>
             <h3>
             <div className="primary">
+              {Object.keys(pet).map((p) => {
+                return (
+                    <React.Fragment>
+                   Pet: {p.name}
+                     <br/>
+                     <img src={p.image} style={myStyles} />
+                    <br/>
+                    <br/>
+                    Breed: {p.date}
+                    <br/>
+                    <br/>
+                    Gender: {p.gender}
+                    <br/>
+                    <br/>
+                </React.Fragment>
+                )
+              })}
+
 
               <img src={pet.image} style={myStyles} />
               <br/>
               <br/>
                 <ul>
-                Name: {pet.name}
                   <br/>
                 Breed: {pet.breed}
                 <br></br>
@@ -82,7 +58,8 @@ const myStyles = {
                 Description: {pet.description}
                 <br/>
                 <br/>
-                Rescue: {pet.rescue.name}
+                Rescued From: {pet.rescue.name}
+                <br/>
                 <br/>
                 Rescue number: {pet.rescue.phone}
                 <br/>
@@ -92,15 +69,10 @@ const myStyles = {
                 <Button variant="outlined" color="inherit"  to={`/summaries/${id}`} component={ Link } fontFamily={'Unbounded'} > View Summaries for {pet.name}</Button> 
                 <br/>
                 <br/>
-                <br/>
-                { currentUser ? 
-                 <Button variant="outlined" color="inherit" onClick={adoptPet} disableElevation > Adopt </Button> : ""
-                }
-               
             </div>
             </h3>
         </Card>
       )
 }
 
-export default PetCard;
+export default MyPetCard;

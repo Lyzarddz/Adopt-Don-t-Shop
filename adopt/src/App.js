@@ -12,7 +12,7 @@ import Profile from './Components/Profile';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
 import RescuePets from './Components/RescuePets';
-import MyPets from './Components/MyPets';
+import MyPetList from './Components/MyPetList';
 import { LoginContext } from './Helper/Context';
 
 
@@ -24,6 +24,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState('');
   const [rescueData, setRescueData] = useState([]);
   const [isAdopted, setIsAdopted] = useState(false);
+
 
   useEffect(() => {
     // auto-login
@@ -37,36 +38,6 @@ function App() {
 
   function loginUser (user) {
     setCurrentUser(user); 
-  }
-
-  function petAdopted (id) {
-    petData.filter(p => p.id !== id)
-  }
-
- 
-  const {id} = petData;
-
-
-  function adoptPet(e){
-    e.preventDefault();
-      
-       fetch(`http://localhost:3000/api/pets/${id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify(id)
-        })
-        .then(res => {
-          if(res.ok){
-            res.json().then(petAdopted(id))
-            alert("Congratulations! You just adopted a Dog");
-          } else {
-            res.json().then(json => setErrors(json.errors))
-           
-          }
-        })
   }
 
 
@@ -142,7 +113,7 @@ function App() {
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
         <Route path='/rescues/:id/pets'  element= {<RescuePets  currentUser={currentUser}  petData={petData} loadPets={loadPets}/>} />
         <Route path='/summaries/:id'  element= {<SummaryList petData={petData} currentUser={currentUser} loadPets={loadPets}/>} />
-        <Route path='/mypets'  element= {<MyPets currentUser={currentUser} loadPets={loadPets} petData={petData} />} />
+        <Route path='/mypets'  element= {<MyPetList currentUser={currentUser} loadPets={loadPets} petData={petData} />} />
       </Routes>
     </Router>
     </LoginContext.Provider>

@@ -13,7 +13,8 @@ class AdoptersController < ApplicationController
     end
 
     def show 
-        render json: @current_adopter, status: :ok
+        adopter = Adopter.find(params[:id])
+        render json: adopter
     end
 
     def update
