@@ -28,6 +28,11 @@ class PetsController < ApplicationController
         render json: pet, status: :created
     end
 
+    def not_adopted
+        pet = Pet.where(:adopted => "false")
+        render json: pet, status: :ok
+    end
+
     def destroy
         pet = current_adopter.pets.find(params[:id])  
         pet.destroy 
@@ -37,7 +42,7 @@ class PetsController < ApplicationController
     private
 
     def pet_params
-        params.permit(:name, :gender, :age, :breed, :friendly, :house_trained, :health , :description, :rescue_id, :adopter_id, :image, :id, :pet)
+        params.permit(:name, :gender, :age, :breed, :friendly, :house_trained, :health , :description, :rescue_id, :adopter_id, :image, :id, :pet, :adopted)
     end
 
 end

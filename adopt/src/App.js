@@ -23,7 +23,7 @@ function App() {
   const [errors, setErrors] = useState([]);
   const [currentUser, setCurrentUser] = useState('');
   const [rescueData, setRescueData] = useState([]);
-  const [isAdopted, setIsAdopted] = useState(false);
+
 
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function App() {
 
   function loadPets() {
  
-    fetch(`http://localhost:3000/api/pets/`, {
+    fetch(`http://localhost:3000/api/pets/not/adopted`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from "semantic-ui-react";
 import PetCard from './PetCard';
-import {  useEffect } from 'react';
+import {  useEffect, useState } from 'react';
 
 
 const PetList = ( {petData, loadPets, currentUser, adoptPet}) => {

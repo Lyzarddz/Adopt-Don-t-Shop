@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 
 const SummaryCard = ({pet, currentUser}) => {
 
+    const myStyles = {
+        height:'40vh',
+      }
+
 
     return(
     <Card variant="outlined">
@@ -13,6 +17,8 @@ const SummaryCard = ({pet, currentUser}) => {
             </div>
             <h3>
             <div className="primary">
+            <img src={pet.image} style={myStyles} />
+                <br/>
                 Pet: {pet.name}
                 <br/>
                 { pet.summaries.map((s) =>{

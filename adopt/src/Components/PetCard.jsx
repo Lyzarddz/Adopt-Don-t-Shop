@@ -9,20 +9,20 @@ const PetCard = ( {pet, currentUser, adoptPet, petData, isAdopted, setIsAdopted}
 
 const [errors, setErrors] = useState([]);
 const navigate = useNavigate()
-const [isAdopted, setIsAdopted] = useState(false);
 
 const {id} = pet
 
-
-console.log(currentUser.id)
 
 function petAdopted (id) {
   petData.filter(p => p.id !== id)
 }
 
+console.log(pet)
+
 function adoptPet(e){
   e.preventDefault();
  
+
   var userId = currentUser.id
     
      fetch(`http://localhost:3000/api/pets/${id}`, {
@@ -32,6 +32,7 @@ function adoptPet(e){
           "Accept": "application/json"
         },
         body: JSON.stringify({
+          adopted: true,
 	       "adopter_id": userId
        })
       })
