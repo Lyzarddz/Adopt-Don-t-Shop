@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   delete "/logout", to:"sessions#destroy"
 
   get "/pets/not/adopted", to: "pets#not_adopted"
+  get "/adopters/mypets/:id", to: "adopters#mypets"
 
-  
+
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

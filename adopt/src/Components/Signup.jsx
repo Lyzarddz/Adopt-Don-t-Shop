@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAlert } from 'react-alert'
 
 const Signup = ({loginUser}) => {
 
@@ -43,6 +42,7 @@ const handleChange = (e) => {
       if(res.ok){
           res.json().then(user => {
             alert("Perfoming background check ....")
+            alert("You have been approved to adopt!")
             loginUser(user)
             navigate((`/`))
           })

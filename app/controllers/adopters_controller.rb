@@ -17,6 +17,12 @@ class AdoptersController < ApplicationController
         render json: adopter
     end
 
+    def mypets
+        adopter = Adopter.find(params[:id])
+        pet = adopter.pets
+        render json: pet, status: :ok
+    end
+
     def update
         adopter = Adopter.find(params[:id])
         adopter.update!(adopter_params)
