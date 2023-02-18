@@ -1,7 +1,7 @@
 
 import Button from '@material-ui/core/Button';
 import { Form } from "semantic-ui-react";
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import Card from '@mui/material/Card';
 import { useNavigate } from "react-router-dom";
 
@@ -16,6 +16,28 @@ const Profile = ({ currentUser, updateProfile, deleteProfile , setCurrentUser}) 
       });
 
 
+console.log(currentUser)
+
+
+      // function persistUserData(){
+      //   fetch('http://localhost:3000/api/me').then((r) => {
+      //     if (r.ok) {
+      //       r.json().then((user) => 
+      //       // setCurrentUser(user),
+      //       setFormData({
+      //         name: user.name,
+      //         email: user.email,
+      //         phone: user.phone
+      //       }));
+      //     }
+      //   });
+      // }
+      
+
+      // useEffect(()=>{
+      //   setFormData("bob");
+      // },[])
+
       function handleChange(event) {
         setFormData({
           ...formData,
@@ -23,11 +45,12 @@ const Profile = ({ currentUser, updateProfile, deleteProfile , setCurrentUser}) 
         });
       }
 
-      const {id} = currentUser;
-
 
       function handleEditProfileClick(e) {
         e.preventDefault();
+      
+      const tempUser = currentUser;
+      const {id} = tempUser;
       
        fetch(`http://localhost:3000/api/adopters/${id}`, {
           method: "PATCH",
@@ -54,7 +77,9 @@ const Profile = ({ currentUser, updateProfile, deleteProfile , setCurrentUser}) 
 
       function handleDeleteProfileClick(e){
         e.preventDefault();
-      
+
+      const {id} = currentUser;
+
         if (window.confirm('Are you sure you want to delete your profile?')) {
             fetch(`http://localhost:3000/api/adopters/${id}`, { 
                 method: 'DELETE',

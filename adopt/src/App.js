@@ -42,7 +42,6 @@ function App() {
 
 
   function loadPets() {
- 
     fetch(`http://localhost:3000/api/pets/not/adopted`, {
       method: "GET",
       headers: {
@@ -95,6 +94,8 @@ function App() {
      })
    }
 
+   
+
    const deleteProfile = (id) => {setCurrentUser(current => Object.keys(current).filter(p => p.id !== id))}
     
 
@@ -109,7 +110,7 @@ function App() {
        <Route path="/signup" element={<Signup loginUser={loginUser}/>} />
         <Route path="/" element={<HomePage/>} />
         <Route path="/profile" element={<Profile setCurrentUser={setCurrentUser} deleteProfile={deleteProfile} currentUser={currentUser} updateProfile={updateProfile}/>} />
-        <Route path="/pets"  element= {<PetList  currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
+        <Route path="/pets"  element= {<PetList currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
         <Route path='/rescues/:id/pets'  element= {<RescuePets  currentUser={currentUser}  petData={petData} loadPets={loadPets}/>} />
         <Route path='/summaries/:id'  element= {<SummaryList petData={petData} currentUser={currentUser} loadPets={loadPets}/>} />
@@ -119,5 +120,8 @@ function App() {
     </LoginContext.Provider>
   );
 }
+
+
+
 
 export default App;

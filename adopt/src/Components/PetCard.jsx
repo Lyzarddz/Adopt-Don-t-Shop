@@ -17,14 +17,13 @@ function petAdopted (id) {
   petData.filter(p => p.id !== id)
 }
 
-console.log(pet)
-
 function adoptPet(e){
   e.preventDefault();
  
 
   var userId = currentUser.id
     
+  if (window.confirm('Are you sure you want to adopt this dog?')){
      fetch(`http://localhost:3000/api/pets/${id}`, {
         method: "PATCH",
         headers: {
@@ -47,7 +46,7 @@ function adoptPet(e){
         }
       })
 }
-
+}
 
 
 

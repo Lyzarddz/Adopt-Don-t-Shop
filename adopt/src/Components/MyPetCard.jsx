@@ -7,7 +7,6 @@ const MyPetCard = ( {pet, currentUser} ) => {
 
 const {id} = pet
 
-// console.log(pet)
 
 const myStyles = {
   height:'50vh',

@@ -49,7 +49,7 @@ const HomePage = () => {
         <h2  style={style2}>
             <GiDogHouse fontSize={45}/> 
             dopt, Don't Shop has been helping mans best friend find their furever homes since 2023</h2>
-            <h3 style={style2}>All of our available dogs have been fully vetted, vaccinated, microchipped and altered</h3>
+            <h3 style={style2}>*All of our available dogs have been fully vetted, vaccinated, microchipped and altered*</h3>
             <br/>
             <br/>
             <br/>
