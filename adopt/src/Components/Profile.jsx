@@ -5,7 +5,7 @@ import { useState , useEffect} from 'react';
 import Card from '@mui/material/Card';
 import { useNavigate } from "react-router-dom";
 
-const Profile = ({ currentUser, updateProfile, deleteProfile , setCurrentUser}) => {
+const Profile = ({ currentUser, deleteProfile , setCurrentUser}) => {
 
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
@@ -16,27 +16,11 @@ const Profile = ({ currentUser, updateProfile, deleteProfile , setCurrentUser}) 
       });
 
 
-console.log(currentUser)
+      const user = localStorage.getItem('currentUser')
+      if (user) {
+        currentUser= JSON.parse(user);
+      }
 
-
-      // function persistUserData(){
-      //   fetch('http://localhost:3000/api/me').then((r) => {
-      //     if (r.ok) {
-      //       r.json().then((user) => 
-      //       // setCurrentUser(user),
-      //       setFormData({
-      //         name: user.name,
-      //         email: user.email,
-      //         phone: user.phone
-      //       }));
-      //     }
-      //   });
-      // }
-      
-
-      // useEffect(()=>{
-      //   setFormData("bob");
-      // },[])
 
       function handleChange(event) {
         setFormData({
@@ -62,7 +46,10 @@ console.log(currentUser)
         })
         .then(res => {
           if(res.ok){
-            res.json().then(updateProfile(id))
+            res.json().then(user => {
+                setCurrentUser(user)
+                localStorage.setItem('currentUser', JSON.stringify(user))
+            })
             alert("Profile updated successfully");
             setErrors("")
             navigate((`/profile`))

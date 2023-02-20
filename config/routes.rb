@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :pets
 
   post "/signup", to: "adopters#create"
-  get "/me", to: "adopters#show"
+  get "/me/", to: "adopters#show"
   post "/login", to:"sessions#create"
   delete "/logout", to:"sessions#destroy"
 

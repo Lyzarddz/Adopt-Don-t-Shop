@@ -28,16 +28,32 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch('http://localhost:3000/api/me').then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setCurrentUser(user));
-      }
-    });
+    const user = localStorage.getItem('currentUser')
+    if (user) {
+      setCurrentUser(JSON.parse(user));
+      console.log("Here")
+    }
+
   }, []);
 
+// const {id} = currentUser;
+
+
+  // useEffect(() => {
+  //   fetch(`http://localhost:3000/api/adopters/${id}`).then((response) => {
+  //     if (response.ok) {
+  //       response.json().then((user) => {
+  //         setCurrentUser(user);
+  //       });
+  //     }
+  //   });
+  // }, []);
+
+  console.log(currentUser)
 
   function loginUser (user) {
     setCurrentUser(user); 
+    localStorage.setItem('currentUser', JSON.stringify(user))
   }
 
 
@@ -82,17 +98,17 @@ function App() {
       }
 
 
-      function updateProfile(updatedProfile){
-        setCurrentUser(current => {
-         return  Object.keys(current).map(profile => {
-           if (profile.id === updatedProfile.id) {
-             return updatedProfile
-           } else {
-               return profile
-             }
-       })
-     })
-   }
+  //     function updateProfile(updatedProfile){
+  //       setCurrentUser(current => {
+  //        return  Object.keys(current).map(profile => {
+  //          if (profile.id === updatedProfile.id) {
+  //            return updatedProfile
+  //          } else {
+  //              return profile
+  //            }
+  //      })
+  //    })
+  //  }
 
    
 
@@ -109,7 +125,7 @@ function App() {
        <Route path="/login" element={<Login loginUser={loginUser} loadPets={loadPets}/>} />
        <Route path="/signup" element={<Signup loginUser={loginUser}/>} />
         <Route path="/" element={<HomePage/>} />
-        <Route path="/profile" element={<Profile setCurrentUser={setCurrentUser} deleteProfile={deleteProfile} currentUser={currentUser} updateProfile={updateProfile}/>} />
+        <Route path="/profile" element={<Profile setCurrentUser={setCurrentUser} deleteProfile={deleteProfile} currentUser={currentUser} />} />
         <Route path="/pets"  element= {<PetList currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
         <Route path='/rescues/:id/pets'  element= {<RescuePets  currentUser={currentUser}  petData={petData} loadPets={loadPets}/>} />

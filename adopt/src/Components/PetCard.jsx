@@ -5,7 +5,7 @@ import { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-const PetCard = ( {pet, currentUser, adoptPet, petData, isAdopted, setIsAdopted} ) => {
+const PetCard = ( {pet, currentUser, adoptPet, petData, setIsAdopted} ) => {
 
 const [errors, setErrors] = useState([]);
 const navigate = useNavigate()

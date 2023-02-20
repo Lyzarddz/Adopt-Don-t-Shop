@@ -45,3 +45,15 @@
 # scoot = Pet.create!(name:"Scoot", age: 1, gender: "Male", breed: "Terrier Mix", friendly:"Not good with kids", house_trained:"Yes", health:"Good", description: "Energetic. Can be nippy with children", rescue_id: 6,  image:"/images/329156256_515360287407459_6278726399290282729_n.jpg", adopter_id:21)
 
 # luna = Pet.create!(name:"Luna", age: 4, gender: "Female", breed: "Great Pyranese", friendly:"Good with other dogs and kids, unsure about cats", house_trained:"Yes", health:"Good", description: "Calm and great with other dogs and children", rescue_id: 2,  image:"/images/331160946_700157921838227_8038469595296485335_n.jpg", adopter_id:25)
+
+# lara = Pet.create!(name:"Lara", age: 6, gender: "Female", breed: "Shepherd Mix", friendly:"Yes", house_trained:"Yes", health:"Good", description: "Crate Trained and quiet, Would prefer a house with kids and another dog", rescue_id: 1,  image:"/images/331048034_1181286539177612_5150498377429728772_n.jpg", adopter_id:21)
+
+# queenie = Pet.create!(name:"Queenie", age: 4, gender: "Female", breed: "Pitt Mix", friendly:"Good with other dogs and kids, unsure about cats", house_trained:"Yes", health:"Good", description: "Calm and great with other dogs and children. Shy at first", rescue_id: 1,  image:"/images/331048034_1181286539177612_5150498377429728772_n.jpg", adopter_id:21, adopted:false)
+
+# larry = Pet.create!(name:"Larry", age: 7, gender: "Male", breed: "Mixed Breed", friendly:"Shy at first. Calm demeanor", house_trained:"Yes", health:"Good", description: "Calm and great with other dogs and children", rescue_id: 1,  image:"/images/331834604_749336456517058_4455868743416333782_n.jpg", adopter_id:21, adopted:false)
+
+# claire = Pet.create!(name:"Claire", age: 4, gender: "Female", breed: "Mixed Breed", friendly:"Good with other dogs and kids, unsure about cats", house_trained:"Yes", health:"Good", description: "Hyper and playful", rescue_id: 3,  image:"/images/330770682_3431531977111554_1403701350338871419_n.jpg", adopter_id:21, adopted:false)
+
+
+
+

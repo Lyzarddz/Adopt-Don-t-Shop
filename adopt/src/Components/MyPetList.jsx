@@ -9,15 +9,22 @@ const [myPets, setMyPets] = useState([]);
 const [errors, setErrors] = useState([]);
 
   useEffect(()=>{
+    const user = localStorage.getItem('currentUser')
+    if (user) {
+      currentUser= JSON.parse(user);
+    }
     loadMyPets()
+   
   },[])
 
-  const {id} = currentUser;
+
+
+console.log(currentUser)
 
 
   function loadMyPets() {
 
-    fetch(`http://localhost:3000/api/adopters/mypets/${id}`, {
+    fetch(`http://localhost:3000/api/adopters/mypets/${currentUser.id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

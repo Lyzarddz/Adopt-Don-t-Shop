@@ -30,4 +30,11 @@ class SummariesController < ApplicationController
         head :no_content
     end
 
+    private
+
+    def summary_params
+        params.permit(:notes, :date, :pet_id)
+
+    end
+
 end

@@ -35,7 +35,7 @@ const Login = ({ loginUser, loadPets }) => {
               res.json().then(user => {
                   loginUser(user)
                   loadPets()
-                  navigate((`/pets/`))
+                  navigate((`/`))
               })
           } else {
             res.json().then(json => setErrors(json.errors))

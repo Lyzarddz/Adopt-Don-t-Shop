@@ -41,6 +41,7 @@ function NavBar() {
           method: 'DELETE',
         })
             setCurrentUser(false);
+            localStorage.setItem('currentUser', false);
             navigate("/");
         }
 

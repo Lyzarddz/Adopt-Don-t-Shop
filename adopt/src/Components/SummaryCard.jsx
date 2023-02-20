@@ -26,12 +26,17 @@ const SummaryCard = ({pet, currentUser}) => {
                         <React.Fragment>
                             <br/>
                             <br/>
-                            Date: {s.date}
+                            <br/>
+                            {s.date}
                             <br/>
                             <br/>
-                            Notes: {s.notes}
+                           {s.notes}
                             <br/>
                             <br/>
+                            **************************************
+                            <br/>
+                            <br/>
+                        
                         </React.Fragment>
                          )
                   })

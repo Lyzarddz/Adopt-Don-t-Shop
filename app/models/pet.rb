@@ -11,5 +11,4 @@ class Pet < ApplicationRecord
   validates :house_trained, presence: true
   validates :health, presence: true
   validates :description, presence: true
-  validates :adopted, presence: true
 end
