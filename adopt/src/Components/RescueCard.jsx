@@ -1,14 +1,12 @@
 import Card from '@mui/material/Card';
 import Button from '@material-ui/core/Button';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const RescueCard = ({rescue}) => {
+const RescueCard = ({ rescue }) => {
 
     const myStyles = {
         height:'20vh',
     }
-
 
     return(
     <Card variant="outlined">

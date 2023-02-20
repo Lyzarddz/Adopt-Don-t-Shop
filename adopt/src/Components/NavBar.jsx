@@ -31,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
 
 function NavBar() {
 
-      const classes = useStyles();
-      const navigate = useNavigate();
-      const {currentUser, setCurrentUser} = useContext(LoginContext)
+   const classes = useStyles();
+   const navigate = useNavigate();
+   const {currentUser, setCurrentUser} = useContext(LoginContext)
 
 
       function logout() {
@@ -45,13 +45,13 @@ function NavBar() {
             navigate("/");
         }
 
-  function loggedInLinks(){
-    return (
-      <div>
-            <Button color="inherit" onClick={logout} >Logout</Button> 
-      </div>
-    )
-  }
+      function loggedInLinks(){
+        return (
+          <div>
+                <Button color="inherit" onClick={logout} >Logout</Button> 
+          </div>
+        )
+      }
 
   function loggedOutLinks(){
     return(
@@ -61,7 +61,6 @@ function NavBar() {
       </div>
     )
   }
-
 
     return (
         <div className={classes.root}>

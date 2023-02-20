@@ -1,11 +1,7 @@
 import Card from '@mui/material/Card';
-import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
 import React from 'react';
 
-const MyPetCard = ( {pet, currentUser, myPets} ) => {
-
-  console.log(myPets)
+const MyPetCard = ( { pet } ) => {
 
 
 const myStyles = {
@@ -19,7 +15,6 @@ const myStyles = {
       </div>
       <h3>
       <div className="primary">
-
         <img src={pet.image} style={myStyles} />
         <br/>
         <br/>

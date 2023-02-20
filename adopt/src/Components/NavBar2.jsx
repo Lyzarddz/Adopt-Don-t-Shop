@@ -38,9 +38,8 @@ const useStyles = makeStyles(() => ({
 
 function NavBar2(){
 
-      const classes = useStyles();
-     
-      const {currentUser, setCurrentUser} = useContext(LoginContext)
+    const classes = useStyles();
+    const {currentUser, setCurrentUser} = useContext(LoginContext)
 
   function loggedInLinks(){
     return (

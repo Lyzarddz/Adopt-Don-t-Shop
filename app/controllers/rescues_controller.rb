@@ -15,7 +15,6 @@ class RescuesController < ApplicationController
     def show 
         render json: @current_rescues, status: :ok
     end
-    
 
     private_methods
     

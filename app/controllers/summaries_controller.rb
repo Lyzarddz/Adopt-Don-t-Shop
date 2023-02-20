@@ -1,7 +1,5 @@
 class SummariesController < ApplicationController
 
-
-    
     def index 
         render json: Summary.all, status: :ok
     end
@@ -23,7 +21,7 @@ class SummariesController < ApplicationController
         render json: summary, status: :created
     end
 
-    
+
     def destroy
         summary = current_adopter.summaries.find(params[:id])
         summary.destroy

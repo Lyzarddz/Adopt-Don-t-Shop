@@ -16,14 +16,13 @@ import MyPetList from './Components/MyPetList';
 import { LoginContext } from './Helper/Context';
 
 
-
 function App() {
 
   const [petData, setPetData] = useState([]);
   const [errors, setErrors] = useState([]);
   const [currentUser, setCurrentUser] = useState('');
   const [rescueData, setRescueData] = useState([]);
-
+  const [isAdopted, setIsAdopted] = useState(false);
 
 
   useEffect(() => {
@@ -33,23 +32,13 @@ function App() {
       setCurrentUser(JSON.parse(user));
       console.log("Here")
     }
-
   }, []);
 
-// const {id} = currentUser;
 
+  function petAdopted (id) {
+    petData.filter(p => p.id !== id)
+  }
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:3000/api/adopters/${id}`).then((response) => {
-  //     if (response.ok) {
-  //       response.json().then((user) => {
-  //         setCurrentUser(user);
-  //       });
-  //     }
-  //   });
-  // }, []);
-
-  console.log(currentUser)
 
   function loginUser (user) {
     setCurrentUser(user); 
@@ -77,7 +66,6 @@ function App() {
     }
 
     function loadRescues() {
-
       fetch(`http://localhost:3000/api/rescues/`, {
         method: "GET",
         headers: {
@@ -97,24 +85,8 @@ function App() {
       })
       }
 
-
-  //     function updateProfile(updatedProfile){
-  //       setCurrentUser(current => {
-  //        return  Object.keys(current).map(profile => {
-  //          if (profile.id === updatedProfile.id) {
-  //            return updatedProfile
-  //          } else {
-  //              return profile
-  //            }
-  //      })
-  //    })
-  //  }
-
-   
-
    const deleteProfile = (id) => {setCurrentUser(current => Object.keys(current).filter(p => p.id !== id))}
     
-
 
   return (
     <LoginContext.Provider value={{currentUser, setCurrentUser}}>
@@ -126,18 +98,15 @@ function App() {
        <Route path="/signup" element={<Signup loginUser={loginUser}/>} />
         <Route path="/" element={<HomePage/>} />
         <Route path="/profile" element={<Profile setCurrentUser={setCurrentUser} deleteProfile={deleteProfile} currentUser={currentUser} />} />
-        <Route path="/pets"  element= {<PetList currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
+        <Route path="/pets"  element= {<PetList setIsAdopted={setIsAdopted} setpetAdopted={petAdopted} currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
         <Route path='/rescues/:id/pets'  element= {<RescuePets  currentUser={currentUser}  petData={petData} loadPets={loadPets}/>} />
-        <Route path='/summaries/:id'  element= {<SummaryList petData={petData} currentUser={currentUser} loadPets={loadPets}/>} />
+        <Route path='/summaries/:id'  element= {<SummaryList isAdopted={isAdopted} setIsAdopted={setIsAdopted} petAdopted={petAdopted} petData={petData} currentUser={currentUser} loadPets={loadPets}/>} />
         <Route path='/mypets'  element= {<MyPetList currentUser={currentUser} loadPets={loadPets} petData={petData} />} />
       </Routes>
     </Router>
     </LoginContext.Provider>
   );
 }
-
-
-
 
 export default App;

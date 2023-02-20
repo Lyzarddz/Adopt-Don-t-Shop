@@ -15,12 +15,10 @@ const Profile = ({ currentUser, deleteProfile , setCurrentUser}) => {
         phone: "",
       });
 
-
       const user = localStorage.getItem('currentUser')
       if (user) {
         currentUser= JSON.parse(user);
       }
-
 
       function handleChange(event) {
         setFormData({
@@ -29,12 +27,11 @@ const Profile = ({ currentUser, deleteProfile , setCurrentUser}) => {
         });
       }
 
+      const {id} = currentUser;
 
       function handleEditProfileClick(e) {
         e.preventDefault();
       
-      const tempUser = currentUser;
-      const {id} = tempUser;
       
        fetch(`http://localhost:3000/api/adopters/${id}`, {
           method: "PATCH",
@@ -60,12 +57,8 @@ const Profile = ({ currentUser, deleteProfile , setCurrentUser}) => {
         })
       }
 
-
-
       function handleDeleteProfileClick(e){
         e.preventDefault();
-
-      const {id} = currentUser;
 
         if (window.confirm('Are you sure you want to delete your profile?')) {
             fetch(`http://localhost:3000/api/adopters/${id}`, { 
@@ -81,8 +74,6 @@ const Profile = ({ currentUser, deleteProfile , setCurrentUser}) => {
       }
 
    
-
-
     return (
         <div className='primary'>
             <h1>My Profile</h1>
@@ -132,11 +123,9 @@ const Profile = ({ currentUser, deleteProfile , setCurrentUser}) => {
                     Delete Account</Button> 
                 </ul>
             </div>
-          
         </Card>
         </div>
     )
-
 }
 
 export default Profile;

@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import { useParams } from 'react-router-dom';
 
 
-const SummaryList = ({ petData, loadPets, currentUser}) => {
+const SummaryList = ({ petData, loadPets, currentUser, setIsAdopted, petAdopted}) => {
 
   useEffect(()=>{
     loadPets()
@@ -30,6 +30,8 @@ const params = useParams();
               key={idx}
               pet={p}
               currentUser={currentUser}
+              petAdopted={petAdopted}
+              setIsAdopted={setIsAdopted}
             />
             </div>
           )

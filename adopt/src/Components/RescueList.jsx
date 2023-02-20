@@ -31,7 +31,6 @@ return (
 <br/>
   </Card>
 )
-
 }
 
 export default RescueList;

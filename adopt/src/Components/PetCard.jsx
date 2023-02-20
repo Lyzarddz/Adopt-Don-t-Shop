@@ -5,21 +5,15 @@ import { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-const PetCard = ( {pet, currentUser, adoptPet, petData, setIsAdopted} ) => {
+const PetCard = ( {pet, currentUser,  petAdopted, setIsAdopted} ) => {
 
 const [errors, setErrors] = useState([]);
 const navigate = useNavigate()
 
 const {id} = pet
 
-
-function petAdopted (id) {
-  petData.filter(p => p.id !== id)
-}
-
 function adoptPet(e){
   e.preventDefault();
- 
 
   var userId = currentUser.id
     
@@ -49,7 +43,6 @@ function adoptPet(e){
 }
 
 
-
 const myStyles = {
   height:'50vh',
 }
@@ -60,7 +53,6 @@ const myStyles = {
             </div>
             <h3>
             <div className="primary">
-
               <img src={pet.image} style={myStyles} />
               <br/>
               <br/>
@@ -96,7 +88,6 @@ const myStyles = {
                 { currentUser ? 
                  <Button variant="outlined" color="inherit" onClick={adoptPet} disableElevation > Adopt </Button> : ""
                 }
-               
             </div>
             </h3>
         </Card>

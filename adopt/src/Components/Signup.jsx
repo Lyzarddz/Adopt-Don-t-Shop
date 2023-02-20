@@ -54,8 +54,6 @@ const handleChange = (e) => {
 }
 
 
-
-
 return ( 
     <div className='primary'>
       <h1 style={{color: "red"}}> <br/>  { errors[0]} <br/> {errors[1]} <br/>  {errors[2]}   <br/>  {errors[3]}</h1>
@@ -83,7 +81,6 @@ return (
     </form>
     </div>
   )
-
 }
 
 export default Signup;

@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 
-
 const Login = ({ loginUser, loadPets }) => {
 
     const [errors, setErrors] = useState([]);
@@ -66,7 +65,6 @@ return(
         </form>
       </div>
     )
-
 }
 
 export default Login;

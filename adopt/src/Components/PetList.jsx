@@ -1,17 +1,14 @@
 import React from 'react'
 import { Card } from "semantic-ui-react";
 import PetCard from './PetCard';
-import {  useEffect, useState } from 'react';
+import {  useEffect } from 'react';
 
 
-const PetList = ( {petData, loadPets, currentUser, adoptPet}) => {
+const PetList = ( {petData, loadPets, currentUser, petAdopted, setIsAdopted}) => {
 
-  const [isAdopted, setIsAdopted] = useState(false);
-
-
-        useEffect(()=>{
-        loadPets()
-      },[])
+    useEffect(() => {
+    loadPets()
+    },[])
 
 
     const cards= petData.map((p, idx)=> {
@@ -22,15 +19,12 @@ const PetList = ( {petData, loadPets, currentUser, adoptPet}) => {
             key={idx}
             pet={p}
             currentUser={currentUser}
-            adoptPet={adoptPet}
-            isAdopted={isAdopted}
             setIsAdopted= {setIsAdopted}
+            petAdopted={petAdopted}
           />
           </div>
         )
     })  
-
-
 
     return (
         <Card>
@@ -42,7 +36,6 @@ const PetList = ( {petData, loadPets, currentUser, adoptPet}) => {
       <br/>
         </Card>
       )
-
 }
   
 export default PetList;

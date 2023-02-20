@@ -1,9 +1,8 @@
 import { Card } from "semantic-ui-react";
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import MyPetCard from "./MyPetCard";
 
-const MyPetList = ({currentUser, petData, loadPets}) => {
+const MyPetList = ({currentUser}) => {
 
 const [myPets, setMyPets] = useState([]);
 const [errors, setErrors] = useState([]);
@@ -13,18 +12,11 @@ const [errors, setErrors] = useState([]);
     if (user) {
       currentUser= JSON.parse(user);
     }
-    loadMyPets()
-   
+     loadMyPets()
   },[])
 
-
-
-console.log(currentUser)
-
-
   function loadMyPets() {
-
-    fetch(`http://localhost:3000/api/adopters/mypets/${currentUser.id}`, {
+   fetch(`http://localhost:3000/api/adopters/mypets/${currentUser.id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -43,8 +35,7 @@ console.log(currentUser)
     })
     }
 
-
-const cards= myPets.map((p, idx)=> {
+  const cards= myPets.map((p, idx)=> {
     return(
       <div key={idx}>
         <MyPetCard
@@ -56,8 +47,6 @@ const cards= myPets.map((p, idx)=> {
       </div>
     )
 }) 
-
-
 
 return (
   <Card>

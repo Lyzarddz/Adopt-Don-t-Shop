@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button';
 
 const HomePage = () => {
 
-
     const myStyles = {
         height:'100vh',
         backgroundColor: "#e0e5e9", 
