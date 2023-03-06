@@ -79,7 +79,6 @@ function App() {
                 setRescueData(rescues)
             })
         }else {
-          console.log(res)
           res.json().then(json => setErrors(json.errors))
         }
       })
