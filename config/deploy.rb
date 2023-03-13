@@ -1,6 +1,6 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.2"
-set :application, 'urladopt'
+set :application, 'Adopt_Dont_Shop'
 set :repo_url, 'git@github.com:Lyzarddz/Adopt-Don-t-Shop.git' # Edit this to match your repository
 set :branch, :master
 set :deploy_to, '/home/deploy/urladopt'
