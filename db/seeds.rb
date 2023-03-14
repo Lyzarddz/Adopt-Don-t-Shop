@@ -20,7 +20,7 @@
 
 #   mrBeefy = Pet.create!(name:"Mr Beefy", age: 2, gender: "Male", breed: "Bulldog", friendly:"Yes", house_trained:"Yes", health:"Good", description: "Sweet", rescue_id: 2,  image:"/images/316810872_448378457485203_1916068418454027368_n.jpg", adopter_id:21)
 
-# ducky = Pet.create!(name:"Ducky", age: 1, gender: "Male", breed: "Lab", friendly:"Yes", house_trained:"Yes", health:"Good", description: "Energetic. Loves playing with other animals", rescue_id: 6,  image:"/images/318758827_459068106416238_2796414441513115284_n.jpg", adopter_id:21)
+ducky = Pet.create!(name:"Ducky", age: 1, gender: "Male", breed: "Lab", friendly:"Yes", house_trained:"Yes", health:"Good", description: "Energetic. Loves playing with other animals", rescue_id: 6,  image:"/images/318758827_459068106416238_2796414441513115284_n.jpg", adopter_id:21)
 
 # lucy = Pet.create!(name:"Lucy", age: 4, gender: "female", breed: "Pit Mix", friendly:"Yes", house_trained:"Yes", health:"Good", description: "Timid at first but warms up quickly. Loves to snuggle and lounge", rescue_id: 1,  image:"images/321332803_708642347318729_8831414895173487154_n.jpg", adopter_id:21)
 
@@ -53,6 +53,8 @@
 # larry = Pet.create!(name:"Larry", age: 7, gender: "Male", breed: "Mixed Breed", friendly:"Shy at first. Calm demeanor", house_trained:"Yes", health:"Good", description: "Calm and great with other dogs and children", rescue_id: 1,  image:"/images/331834604_749336456517058_4455868743416333782_n.jpg", adopter_id:21, adopted:false)
 
 # claire = Pet.create!(name:"Claire", age: 4, gender: "Female", breed: "Mixed Breed", friendly:"Good with other dogs and kids, unsure about cats", house_trained:"Yes", health:"Good", description: "Hyper and playful", rescue_id: 3,  image:"/images/330770682_3431531977111554_1403701350338871419_n.jpg", adopter_id:21, adopted:false)
+
+# bunny = Pet.create!(name:"Bunny", age: 4, gender: "Female", breed: "Great Pyranese", friendly:"Good with other dogs and kids, unsure about cats", house_trained:"Yes", health:"Good", description: "Calm and great with other dogs and children", rescue_id: 2,  image:"/images/331160946_700157921838227_8038469595296485335_n.jpg", adopter_id:25)
 
 
 

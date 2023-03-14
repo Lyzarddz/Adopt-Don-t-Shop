@@ -97,7 +97,7 @@ function App() {
        <Route path="/signup" element={<Signup loginUser={loginUser}/>} />
         <Route path="/" element={<HomePage/>} />
         <Route path="/profile" element={<Profile setCurrentUser={setCurrentUser} deleteProfile={deleteProfile} currentUser={currentUser} />} />
-        <Route path="/pets"  element= {<PetList setIsAdopted={setIsAdopted} setpetAdopted={petAdopted} currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
+        <Route path="/pets"  element= {<PetList setIsAdopted={setIsAdopted} petAdopted={petAdopted} currentUser={currentUser} petData={petData} loadPets={loadPets}/>} />   
         <Route path='/rescues'  element= {<RescueList loadRescues={loadRescues} rescueData={rescueData} />} />
         <Route path='/rescues/:id/pets'  element= {<RescuePets  currentUser={currentUser}  petData={petData} loadPets={loadPets}/>} />
         <Route path='/summaries/:id'  element= {<SummaryList isAdopted={isAdopted} setIsAdopted={setIsAdopted} petAdopted={petAdopted} petData={petData} currentUser={currentUser} loadPets={loadPets}/>} />
